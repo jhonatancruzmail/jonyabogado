@@ -11,7 +11,7 @@ export default function Nav() {
             </div>
             <div className="hidden md:block">
                 <button className="px-6 py-3 border border-gray-600 text-white hover:bg-accent-gold hover:text-black hover:border-accent-gold transition-all duration-300 uppercase text-xs tracking-wider">
-                    Book A Consultation
+                    Agendar Consulta
                 </button>
             </div>
             <div className="block md:hidden text-white">

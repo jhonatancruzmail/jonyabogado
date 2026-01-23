@@ -3,20 +3,20 @@ import { ArrowRight, Briefcase, Building2, Car, Gavel, Scale, Users, UserX } fro
 
 
 function PracticeCard({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
-  return (
-    <div className="bg-secondary-dark p-8 border border-transparent hover:border-accent-gold/30 transition-all duration-300 group">
-      <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
-        {icon}
-      </div>
-      <h3 className="text-xl font-serif text-white mb-4 group-hover:text-accent-gold transition-colors">{title}</h3>
-      <p className="text-gray-400 text-sm mb-8 leading-relaxed">
-        {desc}
-      </p>
-      <button className="flex items-center gap-2 text-white text-xs uppercase tracking-wider group-hover:text-accent-gold transition-colors">
-        View More <ArrowRight className="w-3 h-3" />
-      </button>
-    </div>
-  )
+    return (
+        <div className="bg-secondary-dark p-8 border border-transparent hover:border-accent-gold/30 transition-all duration-300 group">
+            <div className="mb-6 group-hover:scale-110 transition-transform duration-300">
+                {icon}
+            </div>
+            <h3 className="text-xl font-serif text-white mb-4 group-hover:text-accent-gold transition-colors">{title}</h3>
+            <p className="text-gray-400 text-sm mb-8 leading-relaxed">
+                {desc}
+            </p>
+            <button className="flex items-center gap-2 text-white text-xs uppercase tracking-wider group-hover:text-accent-gold transition-colors">
+                Ver Más <ArrowRight className="w-3 h-3" />
+            </button>
+        </div>
+    )
 }
 export default function PracticeAreas() {
     return (
@@ -25,8 +25,8 @@ export default function PracticeAreas() {
                 <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
                     <div className="space-y-4">
                         <h2 className="text-3xl lg:text-5xl font-serif text-white">
-                            Explore The Perfect <br />
-                            Our Practice Areas
+                            Explora Nuestras Áreas <br />
+                            de Práctica Perfectas
                         </h2>
                         <div className="flex items-center gap-2">
                             <span className="h-[1px] w-12 bg-accent-gold"></span>
@@ -35,40 +35,40 @@ export default function PracticeAreas() {
                         </div>
                     </div>
                     <p className="text-gray-400 max-w-md text-sm leading-relaxed">
-                        We are a group of civil litigation/trial attorneys who focus on providing a justice based on the issues relating to insurance defense, insurance coverage, bad faith, insurance fraud and criminal litigation.
+                        Somos un grupo de abogados de litigio civil/juicios que se enfocan en brindar justicia basada en problemas relacionados con defensa de seguros, cobertura de seguros, mala fe, fraude de seguros y litigio penal.
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <PracticeCard
                         icon={<Briefcase className="w-10 h-10 text-accent-gold" />}
-                        title="Business Law"
-                        desc="Be aware of new developments, as laws and rules often change based on the situation."
+                        title="Derecho Corporativo"
+                        desc="Mantente al tanto de los nuevos desarrollos, ya que las leyes y normas cambian a menudo según la situación."
                     />
                     <PracticeCard
                         icon={<Building2 className="w-10 h-10 text-accent-gold" />}
-                        title="Construction Law"
-                        desc="Never judge, just listen and advise. Even if your client has made a bad decision in the case."
+                        title="Derecho de Construcción"
+                        desc="Nunca juzgues, solo escucha y aconseja. Incluso si tu cliente ha tomado una mala decisión en el caso."
                     />
                     <PracticeCard
                         icon={<Car className="w-10 h-10 text-accent-gold" />}
-                        title="Car Accident"
-                        desc="Being untruthful will get you nowhere and give you a reputation of the dishonesty in law."
+                        title="Accidentes de Auto"
+                        desc="Ser deshonesto no te llevará a ninguna parte y te dará una reputación de deshonestidad en la ley."
                     />
                     <PracticeCard
                         icon={<UserX className="w-10 h-10 text-accent-gold" />}
-                        title="Wrongful Death"
-                        desc="Keep yourself up-to-date on your area of law. Be aware of new justice, as laws and rules."
+                        title="Homicidio Culposo"
+                        desc="Mantente actualizado en tu área de derecho. Sé consciente de la nueva justicia, así como de las leyes y normas."
                     />
                     <PracticeCard
                         icon={<Gavel className="w-10 h-10 text-accent-gold" />}
-                        title="Criminal Law"
-                        desc="Our attorneys are fully committed to providing you with the support and attention that you deserve."
+                        title="Derecho Penal"
+                        desc="Nuestros abogados están totalmente comprometidos a brindarte el apoyo y la atención que mereces."
                     />
                     <PracticeCard
                         icon={<Users className="w-10 h-10 text-accent-gold" />}
-                        title="Family Law"
-                        desc="You may find yourself unable to work or complete work-related responsibilities safely."
+                        title="Derecho Familiar"
+                        desc="Es posible que no puedas trabajar o cumplir con tus responsabilidades laborales de manera segura."
                     />
                 </div>
             </div>

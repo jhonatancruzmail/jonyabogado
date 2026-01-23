@@ -31,8 +31,8 @@ export default function Welcome() {
                 {/* Right Content */}
                 <div className="space-y-8">
                     <h2 className="text-3xl lg:text-4xl font-serif text-white">
-                        Welcome To Attorney Law - <br />
-                        Lawyer & Law Firm Company
+                        Bienvenido a Attorney Law - <br />
+                        Firma de Abogados y Asesoría Legal
                     </h2>
                     <div className="flex items-center gap-2">
                         <span className="h-[1px] w-12 bg-accent-gold"></span>
@@ -40,7 +40,7 @@ export default function Welcome() {
                         <span className="h-[1px] w-12 bg-accent-gold"></span>
                     </div>
                     <p className="text-gray-400 leading-relaxed">
-                        Although we are located in Brooklyn, our maritime lawyers are proud to help the injured throughout the nation, including workers who were working in foreign waters at the time of the incident go up against the largest offshore companies and win.
+                        Aunque estamos ubicados en Brooklyn, nuestros abogados marítimos están orgullosos de ayudar a los lesionados en toda la nación, incluyendo a trabajadores que laboraban en aguas extranjeras en el momento del incidente, enfrentándose a las compañías offshore más grandes y ganando.
                     </p>
 
                     <div className="flex items-center gap-4">
@@ -57,13 +57,13 @@ export default function Welcome() {
                             <Briefcase className="w-10 h-10 text-gray-500" />
                             <div>
                                 <span className="text-2xl font-bold text-white block">95%</span>
-                                <span className="text-sm text-gray-400">Case Success</span>
+                                <span className="text-sm text-gray-400">Casos Exitosos</span>
                             </div>
                         </div>
                         <div className="bg-accent-gold p-6 flex items-center gap-4 w-48">
                             <div className="bg-black text-white px-2 py-1 font-bold text-lg">35+</div>
                             <div>
-                                <span className="text-sm text-black font-semibold">Years <br /> Experience</span>
+                                <span className="text-sm text-black font-semibold">Años de <br /> Experiencia</span>
                             </div>
                         </div>
                     </div>
