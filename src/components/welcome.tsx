@@ -31,8 +31,8 @@ export default function Welcome() {
                 {/* Right Content */}
                 <div className="space-y-8">
                     <h2 className="text-3xl lg:text-4xl font-serif text-white">
-                        Bienvenido a Attorney Law - <br />
-                        Firma de Abogados y Asesoría Legal
+                        Bienvenido - <br />
+                        Tu Abogado de Confianza
                     </h2>
                     <div className="flex items-center gap-2">
                         <span className="h-[1px] w-12 bg-accent-gold"></span>
@@ -40,7 +40,7 @@ export default function Welcome() {
                         <span className="h-[1px] w-12 bg-accent-gold"></span>
                     </div>
                     <p className="text-gray-400 leading-relaxed">
-                        Aunque estamos ubicados en Brooklyn, nuestros abogados marítimos están orgullosos de ayudar a los lesionados en toda la nación, incluyendo a trabajadores que laboraban en aguas extranjeras en el momento del incidente, enfrentándose a las compañías offshore más grandes y ganando.
+                        Aunque estoy ubicado en Pitalito, como abogado estoy orgulloso de ayudar a mis clientes en todo el Huila, mi objetivo es brindar asesoría legal de calidad y defender los derechos de mis clientes, con honestidad, transparencia y compromiso.
                     </p>
 
                     <div className="flex items-center gap-4">

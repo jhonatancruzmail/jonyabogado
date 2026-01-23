@@ -22,12 +22,12 @@ export default function Hero() {
         <div className="space-y-8">
           <div className="w-12 h-0.5 bg-accent-gold mb-4"></div>
           <h1 className="text-5xl lg:text-7xl font-serif text-white leading-tight">
-            Somos un Grupo de <br />
-            Profesionales Legales <br />
-            <span className="text-white">Certificados</span>
+            Soy un Abogado <br />
+            Experto y <br />
+            <span className="text-white">Certificado</span>
           </h1>
           <p className="text-gray-400 max-w-lg leading-relaxed border-l-2 border-accent-gold pl-4">
-            hemos ayudado a innumerables trabajadores marítimos y sus familias a enfrentarse a las mayores compañías offshore y ganar.
+            He ayudado a innumerables trabajadores y sus familias a enfrentarse a las mayores compañías y ganar.
           </p>
           <button className="bg-accent-gold text-black font-semibold px-8 py-4 hover:bg-white transition-colors duration-300">
             Contacto

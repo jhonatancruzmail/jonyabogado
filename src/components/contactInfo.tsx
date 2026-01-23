@@ -6,7 +6,7 @@ export default function ContactInfo() {
         <div className="hidden md:flex justify-between items-center px-6 lg:px-20 py-2 border-b border-gray-800 text-xs text-gray-400">
             <div className="flex gap-6">
                 <span className="hover:text-accent-gold cursor-pointer transition-colors">Inicio</span>
-                <span className="hover:text-accent-gold cursor-pointer transition-colors">Nosotros</span>
+                <span className="hover:text-accent-gold cursor-pointer transition-colors">Sobre Mí</span>
                 <span className="hover:text-accent-gold cursor-pointer transition-colors">Páginas</span>
                 <span className="hover:text-accent-gold cursor-pointer transition-colors">Contacto</span>
             </div>

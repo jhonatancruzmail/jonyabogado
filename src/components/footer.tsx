@@ -15,7 +15,7 @@ export default function Footer() {
                             <span className="text-2xl font-serif text-white font-bold tracking-wide">Attorneyster</span>
                         </div>
                         <p className="leading-relaxed text-sm">
-                            Comprometidos con la excelencia y la justicia. Brindamos asesoría legal de primer nivel para proteger tus derechos y tu futuro.
+                            Comprometido con la excelencia y la justicia. Brindo asesoría legal de primer nivel para proteger tus derechos y tu futuro.
                         </p>
                         <div className="flex gap-4">
                             <a href="#" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-accent-gold hover:text-black hover:border-accent-gold transition-all duration-300">

@@ -25,8 +25,8 @@ export default function PracticeAreas() {
                 <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
                     <div className="space-y-4">
                         <h2 className="text-3xl lg:text-5xl font-serif text-white">
-                            Explora Nuestras Áreas <br />
-                            de Práctica Perfectas
+                            Explora Mis Áreas <br />
+                            de Práctica
                         </h2>
                         <div className="flex items-center gap-2">
                             <span className="h-[1px] w-12 bg-accent-gold"></span>
@@ -35,7 +35,7 @@ export default function PracticeAreas() {
                         </div>
                     </div>
                     <p className="text-gray-400 max-w-md text-sm leading-relaxed">
-                        Somos un grupo de abogados de litigio civil/juicios que se enfocan en brindar justicia basada en problemas relacionados con defensa de seguros, cobertura de seguros, mala fe, fraude de seguros y litigio penal.
+                        Soy un abogado de litigio civil y juicios enfocado en brindar justicia basada en problemas relacionados con defensa de seguros, cobertura de seguros, mala fe, fraude de seguros y litigio penal.
                     </p>
                 </div>
 
@@ -63,7 +63,7 @@ export default function PracticeAreas() {
                     <PracticeCard
                         icon={<Gavel className="w-10 h-10 text-accent-gold" />}
                         title="Derecho Penal"
-                        desc="Nuestros abogados están totalmente comprometidos a brindarte el apoyo y la atención que mereces."
+                        desc="Estoy totalmente comprometido a brindarte el apoyo y la atención que mereces."
                     />
                     <PracticeCard
                         icon={<Users className="w-10 h-10 text-accent-gold" />}
