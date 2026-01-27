@@ -18,8 +18,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Attorneyster - Certified Law Professionals",
-  description: "Group of Certified Law Professionals",
+  title: "Jony Peña Abogado - Contable",
+  description: "Jurídico - Contable",
 };
 
 export default function RootLayout({

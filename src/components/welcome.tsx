@@ -45,10 +45,10 @@ export default function Welcome() {
 
                     <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-700 relative">
-                            <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200" alt="Peter Parker" fill className="object-cover" />
+                            <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200" alt="JONY PEÑA" fill className="object-cover" />
                         </div>
                         <div>
-                            <p className="text-accent-gold font-serif text-xl">Peter Parker</p>
+                            <p className="text-accent-gold font-serif text-xl">JONY PEÑA</p>
                         </div>
                     </div>
 

@@ -12,7 +12,7 @@ export default function Footer() {
                     <div className="space-y-6">
                         <div className="flex items-center gap-2">
                             <Scale className="w-8 h-8 text-accent-gold" />
-                            <span className="text-2xl font-serif text-white font-bold tracking-wide">Attorneyster</span>
+                            <span className="text-2xl font-serif text-white font-bold tracking-wide">JONY PEÑA</span>
                         </div>
                         <p className="leading-relaxed text-sm">
                             Comprometido con la excelencia y la justicia. Brindo asesoría legal de primer nivel para proteger tus derechos y tu futuro.
@@ -100,7 +100,7 @@ export default function Footer() {
                             </div>
                             <div className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-accent-gold shrink-0" />
-                                <span className="text-sm">contacto@attorneyster.com</span>
+                                <span className="text-sm">contacto@JONY PEÑA.com</span>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@ export default function Footer() {
             {/* Bottom Bar */}
             <div className="bg-primary-dark py-6 border-t border-gray-800">
                 <div className="container mx-auto px-6 lg:px-20 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-                    <p>&copy; 2024 Attorneyster. Todos los derechos reservados.</p>
+                    <p>&copy; 2024 JONY PEÑA. Todos los derechos reservados.</p>
                     <div className="flex gap-8">
                         <a href="#" className="hover:text-accent-gold transition-colors">Términos y Condiciones</a>
                         <a href="#" className="hover:text-accent-gold transition-colors">Política de Privacidad</a>

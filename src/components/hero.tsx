@@ -5,7 +5,7 @@ export default function Hero() {
 
   return (
 
-    <section className="relative w-full min-h-screen flex items-center pt-20">
+    <section className="relative w-full min-h-screen flex items-center pt-40">
       {/* Background Image Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -34,11 +34,11 @@ export default function Hero() {
           </button>
         </div>
 
-        <div className="hidden lg:flex justify-end relative h-full min-h-[600px] items-end">
+        <div className="hidden lg:flex justify-end relative h-full min-h-[800px] items-end">
           {/* Man Image */}
           <div className="relative w-full h-full max-w-md">
             <Image
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop"
+              src="/abogado1.webp"
               alt="Lawyer"
               fill
               className="object-cover object-top mask-image-b-fade" // Assuming we might want a fade, but css mask is better.
