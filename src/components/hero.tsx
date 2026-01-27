@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { useRef } from "react";
 
 export default function Hero() {
@@ -20,22 +20,26 @@ export default function Hero() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] }
+      transition: { duration: 0.8, ease: "easeOut" }
     }
   };
 
-  const lineVariants = {
-    hidden: { width: 0 },
-    visible: {
-      width: 48,
-      transition: { duration: 1, ease: "easeInOut" }
+  
+const lineVariants: Variants = {
+  hidden: { width: 0 },
+  visible: {
+    width: 48,
+    transition: {
+      duration: 1,
+      ease: "easeInOut"
     }
-  };
+  }
+};
 
   return (
     <section ref={containerRef} className="relative w-full min-h-screen flex items-center pt-40 overflow-hidden">
@@ -124,7 +128,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.8, x: 100 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
           style={{ y: yImage }}
           className="hidden lg:flex justify-end relative h-full min-h-[800px] items-end px-10"
         >
@@ -149,5 +153,5 @@ export default function Hero() {
         </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }
