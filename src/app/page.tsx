@@ -22,6 +22,7 @@ import Welcome from "@/components/welcome";
 import PracticeAreas from "@/components/practiceAreas"
 import Values from "@/components/values";
 import Footer from "@/components/footer";
+import WhatsAppButton from "@/components/whatsappButton";
 
 export default function Home() {
   return (
@@ -46,6 +47,9 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating Action Button */}
+      <WhatsAppButton />
     </main>
   );
 }
