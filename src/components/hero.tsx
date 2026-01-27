@@ -22,16 +22,21 @@ export default function Hero() {
         <div className="space-y-8">
           <div className="w-12 h-0.5 bg-accent-gold mb-4"></div>
           <h1 className="text-5xl lg:text-7xl font-serif text-white leading-tight">
-            Soy un Abogado <br />
-            Experto y <br />
-            <span className="text-white">Certificado</span>
+            Johnny Augusto <br />
+            Peña Murcia <br />
+            <span className="text-accent-gold text-3xl lg:text-4xl block mt-2">Abogado y Contador Público</span>
           </h1>
-          <p className="text-gray-400 max-w-lg leading-relaxed border-l-2 border-accent-gold pl-4">
-            He ayudado a innumerables trabajadores y sus familias a enfrentarse a las mayores compañías y ganar.
+          <p className="text-gray-400 max-w-2xl leading-relaxed border-l-2 border-accent-gold pl-4 text-sm">
+            Johnny Augusto Peña Murcia es Abogado y Contador Público, con formación y experiencia en el análisis integral de asuntos jurídicos, tributarios, contables y financieros, orientado al cumplimiento normativo, la prevención del riesgo legal y la correcta toma de decisiones administrativas y económicas.
           </p>
-          <button className="bg-accent-gold text-black font-semibold px-8 py-4 hover:bg-white transition-colors duration-300">
-            Contacto
-          </button>
+          <div className="flex gap-4">
+            <button className="bg-accent-gold text-black font-semibold px-8 py-4 hover:bg-white transition-colors duration-300">
+              Agendar Consulta
+            </button>
+            <button className="border border-gray-600 text-white font-semibold px-8 py-4 hover:border-accent-gold hover:text-accent-gold transition-colors duration-300">
+              Ver Servicios
+            </button>
+          </div>
         </div>
 
         <div className="hidden lg:flex justify-end relative h-full min-h-[800px] items-end">

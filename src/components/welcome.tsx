@@ -31,40 +31,46 @@ export default function Welcome() {
                 {/* Right Content */}
                 <div className="space-y-8">
                     <h2 className="text-3xl lg:text-4xl font-serif text-white">
-                        Bienvenido - <br />
-                        Tu Abogado de Confianza
+                        Quién Soy - <br />
+                        Abogado y Contador Público
                     </h2>
                     <div className="flex items-center gap-2">
                         <span className="h-[1px] w-12 bg-accent-gold"></span>
                         <Scale className="text-accent-gold w-6 h-6" />
                         <span className="h-[1px] w-12 bg-accent-gold"></span>
                     </div>
-                    <p className="text-gray-400 leading-relaxed">
-                        Aunque estoy ubicado en Pitalito, como abogado estoy orgulloso de ayudar a mis clientes en todo el Huila, mi objetivo es brindar asesoría legal de calidad y defender los derechos de mis clientes, con honestidad, transparencia y compromiso.
-                    </p>
+                    <div className="space-y-4">
+                        <p className="text-gray-400 leading-relaxed text-sm">
+                            Soy Abogado y Contador Público, con más de 15 años de experiencia en el análisis integral de asuntos legales, tributarios, contables y financieros. Mi ejercicio profesional se orienta a brindar asesoría técnica, clara y responsable, articulando el derecho con la contabilidad y las finanzas para ofrecer soluciones sólidas y sostenibles a personas y empresas en la toma de decisiones legales y económicas, con enfoque preventivo, cumplimiento normativo y análisis financiero.
+                        </p>
+                        <p className="text-gray-400 leading-relaxed text-sm font-medium border-l border-accent-gold pl-4 italic">
+                            "Mi trabajo se orienta a ofrecer soluciones claras, legales y sostenibles, integrando el derecho con la contabilidad y las finanzas para proteger el patrimonio y garantizar seguridad jurídica con respaldo profesional en cada caso."
+                        </p>
+                    </div>
 
                     <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-700 relative">
-                            <Image src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200" alt="JONY PEÑA" fill className="object-cover" />
+                            <Image src="/abogado1.webp" alt="Johnny Augusto Peña Murcia" fill className="object-cover" />
                         </div>
                         <div>
-                            <p className="text-accent-gold font-serif text-xl">JONY PEÑA</p>
+                            <p className="text-accent-gold font-serif text-xl uppercase tracking-wider">Johnny Augusto Peña Murcia</p>
                         </div>
                     </div>
 
                     <div className="flex gap-6 mt-8">
-                        <div className="bg-gray-800 p-6 flex items-center gap-4 w-48">
-                            <Briefcase className="w-10 h-10 text-gray-500" />
-                            <div>
-                                <span className="text-2xl font-bold text-white block">95%</span>
-                                <span className="text-sm text-gray-400">Casos Exitosos</span>
+                        <div className="bg-gray-800 p-6 flex flex-col justify-center gap-2 w-56 border border-gray-700">
+                            <div className="flex items-center gap-3">
+                                <Briefcase className="w-6 h-6 text-accent-gold" />
+                                <span className="text-2xl font-bold text-white">15+</span>
                             </div>
+                            <span className="text-xs text-gray-400 uppercase tracking-tighter">Años de Experiencia Interdisciplinaria</span>
                         </div>
-                        <div className="bg-accent-gold p-6 flex items-center gap-4 w-48">
-                            <div className="bg-black text-white px-2 py-1 font-bold text-lg">35+</div>
-                            <div>
-                                <span className="text-sm text-black font-semibold">Años de <br /> Experiencia</span>
+                        <div className="bg-accent-gold p-6 flex flex-col justify-center gap-2 w-56">
+                            <div className="flex items-center gap-3">
+                                <Scale className="w-6 h-6 text-black" />
+                                <span className="text-2xl font-bold text-black uppercase">Firme</span>
                             </div>
+                            <span className="text-xs text-black font-bold uppercase tracking-tighter">Seguridad Jurídica y Financiera</span>
                         </div>
                     </div>
 

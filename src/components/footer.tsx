@@ -12,10 +12,10 @@ export default function Footer() {
                     <div className="space-y-6">
                         <div className="flex items-center gap-2">
                             <Scale className="w-8 h-8 text-accent-gold" />
-                            <span className="text-2xl font-serif text-white font-bold tracking-wide">JONY PEÑA</span>
+                            <span className="text-xl font-serif text-white font-bold tracking-wide">JOHNNY PEÑA</span>
                         </div>
                         <p className="leading-relaxed text-sm">
-                            Comprometido con la excelencia y la justicia. Brindo asesoría legal de primer nivel para proteger tus derechos y tu futuro.
+                            Abogado y Contador Público. Especialista en la integración estratégica del derecho con la realidad financiera para brindar soluciones sólidas y sostenibles.
                         </p>
                         <div className="flex gap-4">
                             <a href="#" className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center hover:bg-accent-gold hover:text-black hover:border-accent-gold transition-all duration-300">
@@ -72,45 +72,43 @@ export default function Footer() {
                     {/* Newsletter & Contact */}
                     <div className="space-y-8">
                         <div>
-                            <h3 className="text-white font-serif text-xl mb-8 relative inline-block">
-                                Suscríbete
-                                <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-accent-gold"></span>
+                            <h3 className="text-white font-serif text-xl mb-4 relative inline-block">
+                                Frase de Cierre
                             </h3>
-                            <p className="text-sm mb-4">Recibe las últimas noticias y actualizaciones legales.</p>
-                            <form className="relative">
-                                <input
-                                    type="email"
-                                    placeholder="Tu correo electrónico"
-                                    className="w-full bg-primary-dark border border-gray-700 py-3 px-4 text-white focus:outline-none focus:border-accent-gold transition-colors text-sm pr-12"
-                                />
-                                <button className="absolute right-2 top-1/2 -translate-y-1/2 text-accent-gold hover:text-white transition-colors">
-                                    <ArrowRight className="w-5 h-5" />
-                                </button>
-                            </form>
+                            <p className="text-accent-gold italic text-sm leading-relaxed border-l border-accent-gold pl-4">
+                                “Donde el derecho, la contabilidad y las finanzas se entienden en conjunto.”
+                            </p>
                         </div>
 
                         <div className="space-y-4 pt-4 border-t border-gray-800/50">
                             <div className="flex items-start gap-3">
                                 <MapPin className="w-5 h-5 text-accent-gold shrink-0 mt-0.5" />
-                                <span className="text-sm">123 Calle Legal, Oficina 400, Ciudad de México, CP 12345</span>
+                                <span className="text-sm">__________________</span>
                             </div>
                             <div className="flex items-center gap-3">
                                 <Phone className="w-5 h-5 text-accent-gold shrink-0" />
-                                <span className="text-sm">+52 (555) 123-4567</span>
+                                <span className="text-sm">____________________</span>
                             </div>
                             <div className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-accent-gold shrink-0" />
-                                <span className="text-sm">contacto@JONY PEÑA.com</span>
+                                <span className="text-sm">____________________</span>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                {/* Legal Notice */}
+                <div className="mt-16 pt-8 border-t border-gray-800">
+                    <p className="text-[10px] text-gray-500 text-center uppercase tracking-widest leading-relaxed max-w-3xl mx-auto">
+                        Aviso legal: La información contenida en este sitio web tiene fines informativos y no constituye asesoría legal o contable sin la correspondiente contratación profesional.
+                    </p>
                 </div>
             </div>
 
             {/* Bottom Bar */}
             <div className="bg-primary-dark py-6 border-t border-gray-800">
                 <div className="container mx-auto px-6 lg:px-20 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-                    <p>&copy; 2024 JONY PEÑA. Todos los derechos reservados.</p>
+                    <p>&copy; 2024 Johnny Augusto Peña Murcia. Todos los derechos reservados.</p>
                     <div className="flex gap-8">
                         <a href="#" className="hover:text-accent-gold transition-colors">Términos y Condiciones</a>
                         <a href="#" className="hover:text-accent-gold transition-colors">Política de Privacidad</a>

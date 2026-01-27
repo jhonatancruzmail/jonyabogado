@@ -24,9 +24,9 @@ export default function PracticeAreas() {
             <div className="container mx-auto px-6 lg:px-20">
                 <div className="flex flex-col lg:flex-row justify-between items-end mb-16 gap-8">
                     <div className="space-y-4">
-                        <h2 className="text-3xl lg:text-5xl font-serif text-white">
-                            Explora Mis Áreas <br />
-                            de Práctica
+                        <h2 className="text-3xl lg:text-5xl font-serif text-white uppercase tracking-tight">
+                            Soluciones Integrales <br />
+                            <span className="text-accent-gold">Legales y Contables</span>
                         </h2>
                         <div className="flex items-center gap-2">
                             <span className="h-[1px] w-12 bg-accent-gold"></span>
@@ -34,41 +34,31 @@ export default function PracticeAreas() {
                             <span className="h-[1px] w-12 bg-accent-gold"></span>
                         </div>
                     </div>
-                    <p className="text-gray-400 max-w-md text-sm leading-relaxed">
-                        Soy un abogado de litigio civil y juicios enfocado en brindar justicia basada en problemas relacionados con defensa de seguros, cobertura de seguros, mala fe, fraude de seguros y litigio penal.
+                    <p className="text-gray-400 max-w-md text-sm leading-relaxed border-l border-gray-700 pl-6 italic">
+                        "Donde el derecho, la contabilidad y las finanzas se entienden en conjunto."
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <PracticeCard
-                        icon={<Briefcase className="w-10 h-10 text-accent-gold" />}
-                        title="Derecho Corporativo"
-                        desc="Mantente al tanto de los nuevos desarrollos, ya que las leyes y normas cambian a menudo según la situación."
+                        icon={<Gavel className="w-10 h-10 text-accent-gold" />}
+                        title="Asesoría Jurídica"
+                        desc="Derecho civil, comercial y laboral. Elaboración y revisión de contratos. Acompañamiento en procesos judiciales y administrativos."
                     />
                     <PracticeCard
                         icon={<Building2 className="w-10 h-10 text-accent-gold" />}
-                        title="Derecho de Construcción"
-                        desc="Nunca juzgues, solo escucha y aconseja. Incluso si tu cliente ha tomado una mala decisión en el caso."
-                    />
-                    <PracticeCard
-                        icon={<Car className="w-10 h-10 text-accent-gold" />}
-                        title="Accidentes de Auto"
-                        desc="Ser deshonesto no te llevará a ninguna parte y te dará una reputación de deshonestidad en la ley."
-                    />
-                    <PracticeCard
-                        icon={<UserX className="w-10 h-10 text-accent-gold" />}
-                        title="Homicidio Culposo"
-                        desc="Mantente actualizado en tu área de derecho. Sé consciente de la nueva justicia, así como de las leyes y normas."
-                    />
-                    <PracticeCard
-                        icon={<Gavel className="w-10 h-10 text-accent-gold" />}
-                        title="Derecho Penal"
-                        desc="Estoy totalmente comprometido a brindarte el apoyo y la atención que mereces."
+                        title="Asesoría Tributaria"
+                        desc="Planeación tributaria responsable. Elaboración de declaraciones. Atención de requerimientos DIAN y estrategias de cumplimiento fiscal."
                     />
                     <PracticeCard
                         icon={<Users className="w-10 h-10 text-accent-gold" />}
-                        title="Derecho Familiar"
-                        desc="Es posible que no puedas trabajar o cumplir con tus responsabilidades laborales de manera segura."
+                        title="Contabilidad y Finanzas"
+                        desc="Organización y control contable. Informes contables y financieros. Análisis financiero para la correcta toma de decisiones."
+                    />
+                    <PracticeCard
+                        icon={<Briefcase className="w-10 h-10 text-accent-gold" />}
+                        title="Cumplimiento Normativo"
+                        desc="Evaluación de riesgos legales y tributarios. Gestión del riesgo. Acompañamiento administrativo y contractual preventivo."
                     />
                 </div>
             </div>

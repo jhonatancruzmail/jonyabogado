@@ -8,7 +8,7 @@ export default function Nav() {
         <nav className="flex justify-between items-center px-6 lg:px-20 py-6 bg-transparent border-b border-gray-800/50">
             <div className="flex items-center gap-2">
                 <Image src="/Logo.png" alt="Logo" width={50} height={50} />
-                <span className="text-2xl font-serif text-white font-bold tracking-wide">JONY PEÑA</span>
+                <span className="text-xl lg:text-2xl font-serif text-white font-bold tracking-wide uppercase">Johnny Augusto Peña Murcia</span>
             </div>
             <div className="hidden md:block">
                 <button className="px-6 py-3 border border-gray-600 text-white hover:bg-accent-gold hover:text-black hover:border-accent-gold transition-all duration-300 uppercase text-xs tracking-wider">

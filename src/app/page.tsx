@@ -20,6 +20,7 @@ import ContactInfo from "@/components/contactInfo";
 import Hero from "@/components/hero";
 import Welcome from "@/components/welcome";
 import PracticeAreas from "@/components/practiceAreas"
+import Values from "@/components/values";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -39,6 +40,9 @@ export default function Home() {
 
       {/* Practice Areas */}
       <PracticeAreas />
+
+      {/* Mission, Vision & Values */}
+      <Values />
 
       {/* Footer */}
       <Footer />
