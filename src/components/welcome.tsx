@@ -95,7 +95,7 @@ export default function Welcome() {
                         className="flex items-center gap-4"
                     >
                         <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-700 relative">
-                            <Image src="/abogado1.webp" alt="Johnny Augusto Peña Murcia" fill className="object-cover" />
+                            <Image src="/abogado3.webp" alt="Johnny Augusto Peña Murcia" fill className="object-cover" />
                         </div>
                         <div>
                             <p className="text-accent-gold font-serif text-xl uppercase tracking-wider">Johnny Augusto Peña Murcia</p>

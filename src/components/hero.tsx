@@ -81,7 +81,7 @@ export default function Hero() {
           {/* Man Image */}
           <div className="relative w-full h-full max-w-md">
             <Image
-              src="/abogado1.webp"
+              src="/abogado3.webp"
               alt="Lawyer"
               fill
               className="object-cover object-top mask-image-b-fade" // Assuming we might want a fade, but css mask is better.
