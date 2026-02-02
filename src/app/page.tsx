@@ -27,11 +27,8 @@ import WhatsAppButton from "@/components/whatsappButton";
 export default function Home() {
   return (
     <main className="min-h-screen bg-primary-dark overflow-x-hidden relative">
-      {/* Header (Nav + Contact Info) */}
-      <div className="absolute w-full z-50 top-0">
-        <Nav />
-        <ContactInfo />
-      </div>
+      {/* Navigation */}
+      <Nav />
 
       {/* Hero Section */}
       <Hero />

@@ -1,158 +1,203 @@
 "use client";
 import { Briefcase, Scale } from "lucide-react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useSpring, useMotionValue } from "framer-motion";
 
 export default function Welcome() {
-    return (
-        <section className="py-20 lg:py-32 bg-secondary-dark relative overflow-hidden">
-            <div className="container mx-auto px-6 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    // Magnetic effect for signature
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+    const springX = useSpring(mouseX, { stiffness: 150, damping: 15 });
+    const springY = useSpring(mouseY, { stiffness: 150, damping: 15 });
 
-                {/* Left Collage with Dramatic Entrance */}
-                <motion.div
-                    initial={{ opacity: 0, x: -100, rotateY: 20 }}
-                    whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="relative h-[600px] w-full perspective-1000"
-                >
+    const handleMouseMove = (e: React.MouseEvent) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        mouseX.set(x * 0.4);
+        mouseY.set(y * 0.4);
+    };
+
+    const handleMouseLeave = () => {
+        mouseX.set(0);
+        mouseY.set(0);
+    };
+
+    return (
+        <section className="py-24 lg:py-40 bg-secondary-dark relative overflow-hidden">
+            {/* Background Grain/Noise or subtle pattern could go here */}
+
+            <div className="container mx-auto px-6 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+
+                {/* Left Collage with Dramatic High-End Entrance */}
+                <div className="relative h-[650px] w-full perspective-2000">
                     <motion.div
-                        initial={{ scale: 1.1, opacity: 0 }}
-                        whileInView={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.2 }}
-                        className="absolute top-0 left-0 w-4/5 h-4/5 overflow-hidden shadow-2xl z-10"
+                        initial={{ opacity: 0, scale: 1.1, rotateY: 25, x: -50 }}
+                        whileInView={{ opacity: 1, scale: 1, rotateY: 0, x: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute top-0 left-0 w-[85%] h-[85%] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] z-10 rounded-sm"
                     >
                         <Image
                             src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=800&auto=format&fit=crop"
                             alt="Library"
                             fill
-                            className="object-cover hover:scale-105 transition-transform duration-1000"
+                            className="object-cover hover:scale-110 transition-transform duration-[2s] ease-out"
                         />
+                        <div className="absolute inset-0 bg-primary-dark/10 group-hover:bg-transparent transition-colors duration-700"></div>
                     </motion.div>
+
                     <motion.div
-                        initial={{ x: 50, y: 50, opacity: 0 }}
-                        whileInView={{ x: 0, y: 0, opacity: 1 }}
+                        initial={{ x: 100, y: 100, opacity: 0, rotate: 5 }}
+                        whileInView={{ x: 0, y: 0, opacity: 1, rotate: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-                        className="absolute bottom-0 right-0 w-3/5 h-3/5 overflow-hidden border-8 border-secondary-dark shadow-2xl z-20"
+                        transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute bottom-0 right-0 w-[60%] h-[60%] overflow-hidden border-[12px] border-secondary-dark shadow-[0_20px_40px_-10px_rgba(0,0,0,0.7)] z-20 rounded-sm"
                     >
                         <Image
                             src="https://images.unsplash.com/photo-1767628711891-3e948c13b478?q=80&w=800&auto=format&fit=crop"
                             alt="Gavel"
                             fill
-                            className="object-cover hover:scale-105 transition-transform duration-1000"
+                            className="object-cover hover:scale-110 transition-transform duration-[2s] ease-out"
                         />
                     </motion.div>
+
                     {/* Decorative Background Element */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 0.1, scale: 1 }}
-                        transition={{ duration: 2 }}
-                        className="absolute -top-10 -left-10 w-40 h-40 border-2 border-accent-gold rounded-full"
-                    />
-                </motion.div>
+                        animate={{
+                            rotate: 360,
+                            scale: [1, 1.1, 1]
+                        }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                        className="absolute -top-16 -left-16 w-64 h-64 border border-accent-gold/10 rounded-full flex items-center justify-center"
+                    >
+                        <div className="w-[90%] h-[90%] border border-accent-gold/5 rounded-full" />
+                    </motion.div>
+                </div>
 
                 {/* Right Content */}
-                <div className="space-y-10">
+                <div className="space-y-12">
                     <motion.div
-                        initial={{ opacity: 0, y: 40 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     >
-                        <h2 className="text-3xl lg:text-4xl font-serif text-white uppercase tracking-tight">
+                        <h2 className="text-4xl lg:text-5xl font-serif text-white uppercase tracking-tight leading-tight">
                             Quién Soy - <br />
-                            <span className="text-accent-gold">Abogado y Contador Público</span>
+                            <motion.span
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.5, duration: 1 }}
+                                className="text-accent-gold"
+                            >
+                                Abogado y Contador Público
+                            </motion.span>
                         </h2>
-                        <div className="flex items-center gap-4 mt-6">
+                        <div className="flex items-center gap-6 mt-8">
                             <motion.span
                                 initial={{ width: 0 }}
-                                whileInView={{ width: 60 }}
+                                whileInView={{ width: 80 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 1, delay: 0.5, ease: "circOut" }}
-                                className="h-[1px] bg-accent-gold"
+                                transition={{ duration: 1.5, delay: 0.8, ease: "circOut" }}
+                                className="h-px bg-accent-gold/50"
                             ></motion.span>
                             <motion.div
-                                animate={{ rotate: [0, 10, -10, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                animate={{ rotate: [0, 15, -15, 0] }}
+                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                             >
                                 <Scale className="text-accent-gold w-6 h-6" />
                             </motion.div>
                             <motion.span
                                 initial={{ width: 0 }}
-                                whileInView={{ width: 60 }}
+                                whileInView={{ width: 80 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 1, delay: 0.5, ease: "circOut" }}
-                                className="h-[1px] bg-accent-gold"
+                                transition={{ duration: 1.5, delay: 0.8, ease: "circOut" }}
+                                className="h-px bg-accent-gold/50"
                             ></motion.span>
                         </div>
                     </motion.div>
 
-                    <div className="space-y-6">
+                    <div className="space-y-8">
                         <motion.p
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-gray-400 leading-relaxed text-sm"
+                            transition={{ duration: 1, delay: 0.3 }}
+                            className="text-gray-400 leading-relaxed text-lg font-light"
                         >
                             Soy Abogado y Contador Público, con más de 15 años de experiencia en el análisis integral de asuntos legales, tributarios, contables y financieros. Mi ejercicio profesional se orienta a brindar asesoría técnica, clara y responsable.
                         </motion.p>
-                        <motion.p
-                            initial={{ opacity: 0, x: 20 }}
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-gray-400 leading-relaxed text-sm font-medium border-l-2 border-accent-gold pl-6 italic bg-primary-dark/30 py-4"
+                            transition={{ duration: 1.2, delay: 0.5 }}
+                            className="relative"
                         >
-                            "Mi trabajo se orienta a ofrecer soluciones claras, legales y sostenibles, integrando el derecho con la contabilidad y las finanzas para proteger el patrimonio y garantizar seguridad jurídica con respaldo profesional en cada caso."
-                        </motion.p>
+                            <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent-gold" />
+                            <p className="text-white/90 leading-relaxed text-sm font-medium pl-8 italic bg-white/5 py-6 rounded-r-sm">
+                                "Mi trabajo se orienta a ofrecer soluciones claras, legales y sostenibles, integrando el derecho con la contabilidad y las finanzas para proteger el patrimonio y garantizar seguridad jurídica con respaldo profesional en cada caso."
+                            </p>
+                        </motion.div>
                     </div>
 
+                    {/* Signature with Magnetic Effect */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        onMouseMove={handleMouseMove}
+                        onMouseLeave={handleMouseLeave}
+                        style={{ x: springX, y: springY }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.6 }}
-                        className="flex items-center gap-4 group cursor-default"
+                        transition={{ duration: 1, delay: 0.8 }}
+                        className="flex items-center gap-6 group cursor-pointer w-fit"
                     >
-                        <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-accent-gold/30 group-hover:border-accent-gold transition-colors duration-500 relative">
-                            <Image src="/abogado3.webp" alt="Johnny Augusto Peña Murcia" fill className="object-cover" />
+                        <div className="w-20 h-20 rounded-full overflow-hidden border border-accent-gold/20 p-1 group-hover:border-accent-gold transition-colors duration-700 relative">
+                            <div className="w-full h-full rounded-full overflow-hidden relative">
+                                <Image src="/abogado3.webp" alt="Johnny Augusto Peña Murcia" fill className="object-cover object-top scale-110 group-hover:scale-125 transition-transform duration-1000" />
+                            </div>
                         </div>
                         <div>
-                            <p className="text-accent-gold font-serif text-xl uppercase tracking-widest group-hover:tracking-[0.15em] transition-all duration-500">Johnny Augusto Peña Murcia</p>
-                            <div className="h-px w-0 group-hover:w-full bg-accent-gold/50 transition-all duration-700"></div>
+                            <p className="text-accent-gold font-serif text-2xl uppercase tracking-[0.2em] group-hover:tracking-[0.3em] transition-all duration-700">Johnny Augusto Peña Murcia</p>
+                            <div className="h-px w-0 group-hover:w-full bg-accent-gold/50 transition-all duration-1000"></div>
+                            <p className="text-[10px] text-gray-500 uppercase tracking-widest mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-700">Abogado y Contador Público</p>
                         </div>
                     </motion.div>
 
-                    <div className="flex flex-wrap gap-6 mt-10">
+                    <div className="flex flex-wrap gap-8 mt-12">
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.7 }}
-                            whileHover={{ y: -5, backgroundColor: "rgba(31, 41, 55, 1)" }}
-                            className="bg-gray-800/50 p-6 flex flex-col justify-center gap-2 w-56 border border-gray-700/50 backdrop-blur-sm transition-all"
+                            transition={{ duration: 0.8, delay: 1 }}
+                            whileHover={{ y: -10, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
+                            className="bg-white/5 backdrop-blur-md p-8 flex flex-col justify-center gap-3 w-64 border border-white/5 transition-all duration-500 rounded-sm group/card"
                         >
-                            <div className="flex items-center gap-3">
-                                <Briefcase className="w-6 h-6 text-accent-gold" />
-                                <span className="text-3xl font-bold text-white">15+</span>
+                            <div className="flex items-center gap-4">
+                                <div className="p-3 bg-accent-gold/10 rounded-lg group-hover/card:bg-accent-gold transition-colors duration-500">
+                                    <Briefcase className="w-6 h-6 text-accent-gold group-hover/card:text-black transition-colors" />
+                                </div>
+                                <span className="text-4xl font-serif text-white">15+</span>
                             </div>
-                            <span className="text-[10px] text-gray-400 uppercase tracking-widest">Años de Experiencia Interdisciplinaria</span>
+                            <span className="text-[10px] text-gray-400 uppercase tracking-[0.2em] leading-tight">Años de Experiencia <br />Interdisciplinaria</span>
                         </motion.div>
+
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.8 }}
-                            whileHover={{ y: -5, backgroundColor: "rgba(212, 175, 55, 1)" }}
-                            className="bg-accent-gold/90 p-6 flex flex-col justify-center gap-2 w-56 group/stat transition-all"
+                            transition={{ duration: 0.8, delay: 1.1 }}
+                            whileHover={{ y: -10, scale: 1.02 }}
+                            className="bg-accent-gold p-8 flex flex-col justify-center gap-3 w-64 shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)] transition-all duration-500 rounded-sm group/stat"
                         >
-                            <div className="flex items-center gap-3">
-                                <Scale className="w-6 h-6 text-black" />
-                                <span className="text-3xl font-bold text-black uppercase">Firme</span>
+                            <div className="flex items-center gap-4">
+                                <div className="p-3 bg-black/10 rounded-lg">
+                                    <Scale className="w-6 h-6 text-black" />
+                                </div>
+                                <span className="text-3xl font-serif text-black uppercase tracking-tighter">Firme</span>
                             </div>
-                            <span className="text-[10px] text-black font-bold uppercase tracking-widest opacity-70 group-hover/stat:opacity-100">Seguridad Jurídica y Financiera</span>
+                            <span className="text-[10px] text-black font-bold uppercase tracking-[0.2em] leading-tight opacity-70 group-hover/stat:opacity-100 transition-opacity">Seguridad Jurídica <br />y Financiera</span>
                         </motion.div>
                     </div>
 

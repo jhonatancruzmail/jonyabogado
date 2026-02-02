@@ -1,124 +1,164 @@
 "use client";
 import Image from "next/image";
-import { motion, useScroll, useTransform, Variants } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, Variants, useSpring, useMotionValue } from "framer-motion";
+import { useRef, useEffect } from "react";
 
 export default function Hero() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
-  const yImage = useTransform(scrollY, [0, 500], [0, 100]);
-  const yContent = useTransform(scrollY, [0, 500], [0, -50]);
+  const yImage = useTransform(scrollY, [0, 500], [0, 150]);
+  const yContent = useTransform(scrollY, [0, 500], [0, -80]);
+  const opacityHeader = useTransform(scrollY, [0, 300], [1, 0]);
+
+  // Magnetic button effect values
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 150, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 150, damping: 20 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    mouseX.set(x * 0.3);
+    mouseY.set(y * 0.3);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.3
       }
     }
   };
 
-  const itemVariants: Variants = {
-    hidden: { y: 30, opacity: 0 },
+  const titleVariants: Variants = {
+    hidden: { y: 100, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" }
+      transition: {
+        duration: 1.2,
+        ease: [0.16, 1, 0.3, 1]
+      }
     }
   };
 
-  
-const lineVariants: Variants = {
-  hidden: { width: 0 },
-  visible: {
-    width: 48,
-    transition: {
-      duration: 1,
-      ease: "easeInOut"
+  const lineVariants: Variants = {
+    hidden: { scaleX: 0, originX: 0 },
+    visible: {
+      scaleX: 1,
+      transition: {
+        duration: 1.5,
+        ease: [0.16, 1, 0.3, 1],
+        delay: 0.5
+      }
     }
-  }
-};
+  };
+
+  const text = "Johnny Augusto Peña Murcia";
+  const words = text.split(" ");
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-screen flex items-center pt-40 overflow-hidden">
-      {/* Background Image Overlay with Ken Burns Effect */}
+    <section ref={containerRef} className="relative w-full min-h-screen flex items-center pt-40 overflow-hidden bg-primary-dark">
+      {/* Background Image Overlay with Enhanced Ken Burns */}
       <div className="absolute inset-0 z-0">
         <motion.div
-          initial={{ scale: 1.15 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 10, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+          initial={{ scale: 1.2, rotate: 1 }}
+          animate={{ scale: 1.1, rotate: 0 }}
+          transition={{
+            duration: 20,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "reverse"
+          }}
           className="relative w-full h-full"
         >
           <Image
             src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2070&auto=format&fit=crop"
             alt="Law Library Background"
             fill
-            className="object-cover opacity-20"
+            className="object-cover opacity-15 grayscale-[0.5]"
             priority
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/95 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary-dark/90 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-transparent to-transparent"></div>
       </div>
 
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        style={{ y: yContent }}
+        style={{ y: yContent, opacity: opacityHeader }}
         className="container mx-auto px-6 lg:px-20 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
       >
-        <div className="space-y-8">
+        <div className="space-y-10">
           <motion.div
             variants={lineVariants}
-            className="h-0.5 bg-accent-gold mb-4"
+            className="h-1 bg-accent-gold w-16 mb-6"
           ></motion.div>
 
-          <div className="overflow-hidden">
-            <motion.h1
-              variants={itemVariants}
-              className="text-5xl lg:text-7xl font-serif text-white leading-tight"
-            >
-              Johnny Augusto <br />
-              Peña Murcia <br />
+          <div className="overflow-visible">
+            <h1 className="text-6xl lg:text-8xl font-serif text-white leading-[1.1] tracking-tight">
+              <span className="block overflow-hidden pb-2">
+                <motion.span variants={titleVariants} className="block">Johnny Augusto</motion.span>
+              </span>
+              <span className="block overflow-hidden py-1">
+                <motion.span variants={titleVariants} className="block text-accent-gold italic">Peña Murcia</motion.span>
+              </span>
               <motion.span
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.8 }}
-                className="text-accent-gold text-3xl lg:text-4xl block mt-2"
+                transition={{ duration: 1.2, delay: 1.2, ease: "easeOut" }}
+                className="text-gray-400 text-2xl lg:text-3xl block mt-6 font-light tracking-widest uppercase"
               >
                 Abogado y Contador Público
               </motion.span>
-            </motion.h1>
+            </h1>
           </div>
 
           <motion.p
-            variants={itemVariants}
-            className="text-gray-400 max-w-2xl leading-relaxed border-l-2 border-accent-gold pl-4 text-sm"
+            variants={titleVariants}
+            className="text-gray-400 max-w-xl leading-relaxed border-l border-accent-gold/50 pl-6 text-base font-light"
           >
-            Johnny Augusto Peña Murcia es Abogado y Contador Público, con formación y experiencia en el análisis integral de asuntos jurídicos, tributarios, contables y financieros, orientado al cumplimiento normativo, la prevención del riesgo legal y la correcta toma de decisiones administrativas y económicas.
+            Análisis integral de asuntos jurídicos, tributarios, contables y financieros, orientado al cumplimiento normativo y la prevención del riesgo legal.
           </motion.p>
 
           <motion.div
-            variants={itemVariants}
-            className="flex gap-4"
+            variants={titleVariants}
+            className="flex flex-wrap gap-6 pt-4"
           >
             <motion.button
-              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(212, 175, 55, 0.3)" }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-accent-gold text-black font-semibold px-8 py-4 transition-colors duration-300 relative overflow-hidden group"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              style={{ x: springX, y: springY }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-accent-gold text-black font-bold px-10 py-5 transition-colors duration-500 relative overflow-hidden group rounded-sm"
             >
               <span className="relative z-10">Agendar Consulta</span>
               <motion.div
-                className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"
+                className="absolute inset-0 bg-white opacity-0 group-hover:opacity-30 transition-opacity"
                 initial={false}
               />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
             </motion.button>
             <motion.button
-              whileHover={{ scale: 1.05, borderColor: "#d4af37", color: "#d4af37" }}
+              whileHover={{
+                backgroundColor: "rgba(212, 175, 55, 0.1)",
+                borderColor: "#d4af37"
+              }}
               whileTap={{ scale: 0.95 }}
-              className="border border-gray-600 text-white font-semibold px-8 py-4 transition-all duration-300"
+              className="border border-white/20 text-white font-medium px-10 py-5 transition-all duration-500 rounded-sm backdrop-blur-sm"
             >
               Ver Servicios
             </motion.button>
@@ -126,31 +166,64 @@ const lineVariants: Variants = {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, x: 100 }}
+          initial={{ opacity: 0, scale: 0.9, x: 50 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           style={{ y: yImage }}
-          className="hidden lg:flex justify-end relative h-full min-h-[800px] items-end px-10"
+          className="hidden lg:flex justify-end relative h-[800px] items-end pb-0"
         >
           {/* Man Image with Parallax and Glow */}
-          <div className="relative w-full h-full max-w-md group">
+          <div className="relative w-full h-full max-w-lg group">
             <motion.div
-              className="absolute inset-0 bg-accent-gold/5 blur-3xl rounded-full scale-150 group-hover:bg-accent-gold/10 transition-colors"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-accent-gold/10 blur-[120px] rounded-full z-0"
               animate={{
-                scale: [1.4, 1.5, 1.4],
-                opacity: [0.4, 0.6, 0.4]
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.5, 0.3],
+                rotate: [0, 90, 0]
               }}
-              transition={{ duration: 4, repeat: Infinity }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             />
-            <Image
-              src="/abogado3.webp"
-              alt="Lawyer"
-              fill
-              className="object-cover object-top mask-image-b-fade relative z-10"
-              style={{ maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }}
+
+            <motion.div
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="relative z-10 w-full h-full"
+            >
+              <Image
+                src="/abogado3.webp"
+                alt="Johnny Augusto Peña Murcia"
+                fill
+                className="object-cover object-top relative z-10"
+                style={{ maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)' }}
+                priority
+              />
+            </motion.div>
+
+            {/* Decorative Floating Elements */}
+            <motion.div
+              animate={{ y: [0, 20, 0], x: [0, 10, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-10 -right-10 w-32 h-32 border border-accent-gold/20 rounded-full blur-sm"
             />
           </div>
         </motion.div>
+      </motion.div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden lg:block"
+      >
+        <div className="flex flex-col items-center gap-4">
+          <span className="text-[10px] text-accent-gold uppercase tracking-[0.3em]">Scroll</span>
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-px h-12 bg-gradient-to-b from-accent-gold to-transparent"
+          />
+        </div>
       </motion.div>
     </section>
   );
