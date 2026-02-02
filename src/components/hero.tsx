@@ -41,7 +41,7 @@ export default function Hero() {
   };
 
   const titleVariants: Variants = {
-    hidden: { y: 100, opacity: 0 },
+    hidden: { y: 40, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
@@ -113,11 +113,36 @@ export default function Hero() {
                 <motion.span variants={titleVariants} className="block">Johnny Augusto</motion.span>
               </span>
               <span className="block overflow-hidden py-1">
-                <motion.span variants={titleVariants} className="block text-accent-gold italic">Peña Murcia</motion.span>
+                <motion.span
+                  variants={titleVariants}
+                  className="block text-gold-metallic italic relative"
+                >
+                  Peña Murcia
+                  <motion.span
+                    initial={{ backgroundPosition: "200% 0" }}
+                    animate={{ backgroundPosition: "-200% 0" }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      repeatDelay: 2,
+                      ease: "easeInOut",
+                      delay: 2
+                    }}
+                    style={{
+                      backgroundImage: "linear-gradient(110deg, transparent 35%, rgba(255,255,255,0.8) 50%, transparent 65%)",
+                      backgroundSize: "250% 100%",
+                      WebkitBackgroundClip: "text",
+                      backgroundClip: "text",
+                    }}
+                    className="absolute inset-0 z-10 text-transparent pointer-events-none brightness-150"
+                  >
+                    Peña Murcia
+                  </motion.span>
+                </motion.span>
               </span>
               <motion.span
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 1.2, delay: 1.2, ease: "easeOut" }}
                 className="text-gray-400 text-2xl lg:text-3xl block mt-6 font-light tracking-widest uppercase"
               >
@@ -143,14 +168,14 @@ export default function Hero() {
               style={{ x: springX, y: springY }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-accent-gold text-black font-bold px-10 py-5 transition-colors duration-500 relative overflow-hidden group rounded-sm"
+              className="bg-gold-metallic text-black font-bold px-10 py-5 transition-all duration-500 relative overflow-hidden group rounded-sm"
             >
               <span className="relative z-10">Agendar Consulta</span>
               <motion.div
                 className="absolute inset-0 bg-white opacity-0 group-hover:opacity-30 transition-opacity"
                 initial={false}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
             </motion.button>
             <motion.button
               whileHover={{
@@ -166,8 +191,8 @@ export default function Hero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, x: 50 }}
-          animate={{ opacity: 1, scale: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           style={{ y: yImage }}
           className="hidden lg:flex justify-end relative h-[800px] items-end pb-0"
@@ -217,7 +242,7 @@ export default function Hero() {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden lg:block"
       >
         <div className="flex flex-col items-center gap-4">
-          <span className="text-[10px] text-accent-gold uppercase tracking-[0.3em]">Scroll</span>
+          <span className="text-[10px] text-gold-metallic uppercase tracking-[0.3em] font-bold">Scroll</span>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}

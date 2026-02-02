@@ -21,6 +21,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  overflow-x: hidden;
 }
 
 /* Custom scrollbar for webkit */
@@ -36,4 +37,39 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #d4af37; 
+}
+@layer utilities {
+  .text-gold-metallic {
+    background: linear-gradient(
+      to bottom,
+      #f5e5a2 0%,
+      #d4af37 22%,
+      #f5e5a2 45%,
+      #b5952f 50%,
+      #d4af37 78%,
+      #f5e5a2 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));
+  }
+
+  .bg-gold-metallic {
+    background: linear-gradient(
+      135deg,
+      #f5e5a2 0%,
+      #d4af37 25%,
+      #b5952f 50%,
+      #d4af37 75%,
+      #f5e5a2 100%
+    );
+    box-shadow: 
+      0 4px 15px rgba(212, 175, 55, 0.3),
+      inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  }
+
+  .perspective-2000 {
+    perspective: 2000px;
+  }
 }

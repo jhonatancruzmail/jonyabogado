@@ -89,7 +89,7 @@ export default function Welcome() {
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.5, duration: 1 }}
-                                className="text-accent-gold"
+                                className="text-gold-metallic"
                             >
                                 Abogado y Contador Público
                             </motion.span>
@@ -106,7 +106,7 @@ export default function Welcome() {
                                 animate={{ rotate: [0, 15, -15, 0] }}
                                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                             >
-                                <Scale className="text-accent-gold w-6 h-6" />
+                                <Scale className="text-gold-metallic w-6 h-6" />
                             </motion.div>
                             <motion.span
                                 initial={{ width: 0 }}
@@ -135,7 +135,7 @@ export default function Welcome() {
                             transition={{ duration: 1.2, delay: 0.5 }}
                             className="relative"
                         >
-                            <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent-gold" />
+                            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gold-metallic" />
                             <p className="text-white/90 leading-relaxed text-sm font-medium pl-8 italic bg-white/5 py-6 rounded-r-sm">
                                 "Mi trabajo se orienta a ofrecer soluciones claras, legales y sostenibles, integrando el derecho con la contabilidad y las finanzas para proteger el patrimonio y garantizar seguridad jurídica con respaldo profesional en cada caso."
                             </p>
@@ -159,8 +159,8 @@ export default function Welcome() {
                             </div>
                         </div>
                         <div>
-                            <p className="text-accent-gold font-serif text-2xl uppercase tracking-[0.2em] group-hover:tracking-[0.3em] transition-all duration-700">Johnny Augusto Peña Murcia</p>
-                            <div className="h-px w-0 group-hover:w-full bg-accent-gold/50 transition-all duration-1000"></div>
+                            <p className="text-gold-metallic font-serif text-2xl uppercase tracking-[0.2em] group-hover:tracking-[0.3em] transition-all duration-700">Johnny Augusto Peña Murcia</p>
+                            <div className="h-px w-0 group-hover:w-full bg-gold-metallic transition-all duration-1000"></div>
                             <p className="text-[10px] text-gray-500 uppercase tracking-widest mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-700">Abogado y Contador Público</p>
                         </div>
                     </motion.div>
@@ -189,7 +189,7 @@ export default function Welcome() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 1.1 }}
                             whileHover={{ y: -10, scale: 1.02 }}
-                            className="bg-accent-gold p-8 flex flex-col justify-center gap-3 w-64 shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)] transition-all duration-500 rounded-sm group/stat"
+                            className="bg-gold-metallic p-8 flex flex-col justify-center gap-3 w-64 shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)] transition-all duration-500 rounded-sm group/stat"
                         >
                             <div className="flex items-center gap-4">
                                 <div className="p-3 bg-black/10 rounded-lg">

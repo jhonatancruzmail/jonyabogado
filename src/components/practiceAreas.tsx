@@ -59,14 +59,14 @@ function PracticeCard({ icon, title, desc, delay }: { icon: React.ReactNode, tit
                     whileHover={{ scale: 1.1 }}
                     className="mb-10"
                 >
-                    <div className="w-20 h-20 rounded-2xl bg-primary-dark/50 backdrop-blur-sm flex items-center justify-center group-hover:bg-accent-gold transition-all duration-500 shadow-xl border border-white/5 group-hover:border-transparent">
+                    <div className="w-20 h-20 rounded-2xl bg-primary-dark/50 backdrop-blur-sm flex items-center justify-center group-hover:bg-gold-metallic transition-all duration-500 shadow-xl border border-white/5 group-hover:border-transparent">
                         <div className="text-accent-gold group-hover:text-black transition-colors duration-500">
                             {icon}
                         </div>
                     </div>
                 </motion.div>
 
-                <h3 className="text-2xl font-serif text-white mb-4 group-hover:text-accent-gold transition-colors duration-500">
+                <h3 className="text-2xl font-serif text-white mb-4 group-hover:text-gold-metallic transition-colors duration-500">
                     {title}
                 </h3>
                 <p className="text-gray-400 text-sm mb-10 leading-relaxed group-hover:text-gray-200 transition-colors font-light">
@@ -100,13 +100,21 @@ export default function PracticeAreas() {
 
     return (
         <section ref={containerRef} className="py-32 lg:py-48 bg-primary-dark overflow-hidden relative">
-            {/* Background Decorative Text with Parallax */}
-            <motion.div
-                style={{ x: xParallax, opacity: opacityParallax }}
-                className="absolute top-1/2 left-0 -translate-y-1/2 text-[25rem] font-serif text-white whitespace-nowrap pointer-events-none select-none"
-            >
-                EXPERTICIA
-            </motion.div>
+            {/* Video Background */}
+            <div className="absolute inset-0 z-0">
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                >
+                    <source src="/mazoContraMesa.mp4" type="video/mp4" />
+                </video>
+                {/* Overlays for depth and readability */}
+                <div className="absolute inset-0 bg-gradient-to-b from-primary-dark via-primary-dark/40 to-primary-dark" />
+                <div className="absolute inset-0 bg-primary-dark/60" />
+            </div>
 
             <div className="container mx-auto px-6 lg:px-20 relative z-10">
                 <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-12">
@@ -123,7 +131,7 @@ export default function PracticeAreas() {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: 0.6, duration: 1 }}
-                                className="text-accent-gold italic block mt-2"
+                                className="text-gold-metallic italic block mt-2"
                             >
                                 Integrales
                             </motion.span>
