@@ -68,7 +68,7 @@ export default function Hero() {
   const words = text.split(" ");
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-screen flex items-center pt-30 overflow-hidden bg-primary-dark">
+    <section ref={containerRef} className="relative w-full min-h-screen flex items-center pt-0 lg:pt-32 overflow-hidden bg-primary-dark">
       {/* Background Image Overlay with Enhanced Ken Burns */}
       <div className="absolute inset-0 z-0">
         <motion.div
@@ -101,59 +101,66 @@ export default function Hero() {
         style={{ y: yContent, opacity: opacityHeader }}
         className="container mx-auto px-6 lg:px-20 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
       >
-        <div className="space-y-10">
+        <div className="space-y-6 lg:space-y-10 relative z-20">
           <motion.div
             variants={lineVariants}
             className="h-1 bg-accent-gold w-16 mb-6"
           ></motion.div>
 
           <div className="overflow-visible">
-            <h1 className="text-6xl lg:text-8xl font-serif text-white leading-[1.1] tracking-tight">
-              <span className="block overflow-hidden pb-2">
-                <motion.span variants={titleVariants} className="block">Jony Augusto</motion.span>
-              </span>
-              <span className="block overflow-hidden py-1">
-                <motion.span
-                  variants={titleVariants}
-                  className="block text-gold-metallic italic relative"
-                >
-                  Peña Murcia
-                  <motion.span
-                    initial={{ backgroundPosition: "200% 0" }}
-                    animate={{ backgroundPosition: "-200% 0" }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      repeatDelay: 2,
-                      ease: "easeInOut",
-                      delay: 2
-                    }}
-                    style={{
-                      backgroundImage: "linear-gradient(110deg, transparent 35%, rgba(255,255,255,0.8) 50%, transparent 65%)",
-                      backgroundSize: "250% 100%",
-                      WebkitBackgroundClip: "text",
-                      backgroundClip: "text",
-                    }}
-                    className="absolute inset-0 z-10 text-transparent pointer-events-none brightness-150"
-                  >
-                    Peña Murcia
-                  </motion.span>
-                </motion.span>
-              </span>
+            <h1 className="flex flex-col pt-28 lg:pt-0 text-5xl lg:text-8xl font-serif text-white leading-[1.1] tracking-tight">
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.2, delay: 1.2, ease: "easeOut" }}
-                className="text-gray-400 text-2xl lg:text-3xl block mt-6 font-light tracking-widest uppercase"
+                className="text-gray-400 text-xl lg:text-3xl block mb-4 lg:mt-6 font-light tracking-widest uppercase order-1 lg:order-2"
               >
-                Abogado y Contador Público
+                Abogado <span className="lg:inline hidden">& Contador Público</span><span className="lg:hidden inline">& Contador</span>
               </motion.span>
+              <div className="order-2 lg:order-1">
+                <span className="block overflow-hidden pb-2">
+                  <motion.span variants={titleVariants} className="block">
+                    <span className="lg:inline hidden">Jony Augusto</span>
+                    <span className="lg:hidden inline">Jony</span>
+                  </motion.span>
+                </span>
+                <span className="block overflow-hidden py-1">
+                  <motion.span
+                    variants={titleVariants}
+                    className="block text-gold-metallic italic relative"
+                  >
+                    <span className="lg:inline hidden">Peña Murcia</span>
+                    <span className="lg:hidden inline">Peña</span>
+                    <motion.span
+                      initial={{ backgroundPosition: "200% 0" }}
+                      animate={{ backgroundPosition: "-200% 0" }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        repeatDelay: 2,
+                        ease: "easeInOut",
+                        delay: 2
+                      }}
+                      style={{
+                        backgroundImage: "linear-gradient(110deg, transparent 35%, rgba(255,255,255,0.8) 50%, transparent 65%)",
+                        backgroundSize: "250% 100%",
+                        WebkitBackgroundClip: "text",
+                        backgroundClip: "text",
+                      }}
+                      className="absolute inset-0 z-10 text-transparent pointer-events-none brightness-150"
+                    >
+                      <span className="lg:inline hidden">Peña Murcia</span>
+                      <span className="lg:hidden inline">Peña</span>
+                    </motion.span>
+                  </motion.span>
+                </span>
+              </div>
             </h1>
           </div>
 
           <motion.p
             variants={titleVariants}
-            className="text-gray-400 max-w-xl leading-relaxed border-l border-accent-gold/50 pl-6 text-base font-light"
+            className="text-white lg:text-gray-400 max-w-xl leading-relaxed border-l border-accent-gold/50 pl-6 text-base font-light bg-accent-gold/10 backdrop-blur-md p-6 rounded-sm lg:bg-transparent lg:p-0 lg:backdrop-blur-none mt-54 lg:mt-0"
           >
             Análisis integral de asuntos jurídicos, tributarios, contables y financieros, orientado al cumplimiento normativo y la prevención del riesgo legal.
           </motion.p>
@@ -193,10 +200,11 @@ export default function Hero() {
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
           transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           style={{ y: yImage }}
-          className="hidden lg:flex justify-end relative h-[800px] items-end pb-0"
+          className="flex justify-end items-end pb-0 absolute lg:relative -right-16 lg:right-0 bottom-48 lg:bottom-auto h-[600px] lg:h-[800px] w-full lg:w-auto opacity-30 lg:opacity-100 z-10 lg:z-10 pointer-events-none lg:pointer-events-auto"
         >
           {/* Man Image with Parallax and Glow */}
           <div className="relative w-full h-full max-w-lg group">
