@@ -59,7 +59,7 @@ export default function PracticeAreas() {
     });
 
     return (
-        <section ref={containerRef} className="py-32 lg:py-48 bg-primary-dark overflow-hidden relative">
+        <section id="servicios" ref={containerRef} className="py-32 lg:py-48 bg-primary-dark overflow-hidden relative">
             {/* Video Background */}
             <div className="absolute inset-0 z-0">
                 <video

@@ -177,16 +177,17 @@ export default function Hero() {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
             </motion.button>
-            <motion.button
+            <motion.a
+              href="#servicios"
               whileHover={{
                 backgroundColor: "rgba(212, 175, 55, 0.1)",
                 borderColor: "#d4af37"
               }}
               whileTap={{ scale: 0.95 }}
-              className="border border-white/20 text-white font-medium px-10 py-5 transition-all duration-500 rounded-sm backdrop-blur-sm"
+              className="border border-white/20 text-white font-medium px-10 py-5 transition-all duration-500 rounded-sm backdrop-blur-sm flex items-center justify-center cursor-pointer"
             >
               Ver Servicios
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
 

@@ -60,7 +60,7 @@ export default function Footer() {
                         <ul className="space-y-4">
                             {['Asesoría Jurídica', 'Asesoría de Familia', 'Asesoría Tributaria', 'Contabilidad', 'Cumplimiento'].map((item) => (
                                 <li key={item}>
-                                    <a href="#" className="flex items-center gap-2 hover:text-accent-gold transition-colors duration-300 text-sm group">
+                                    <a href="#servicios" className="flex items-center gap-2 hover:text-accent-gold transition-colors duration-300 text-sm group">
                                         <span className="w-1.5 h-1.5 bg-accent-gold rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                                         {item}
                                     </a>
