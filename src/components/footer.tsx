@@ -83,15 +83,15 @@ export default function Footer() {
                         <div className="space-y-4 pt-4 border-t border-gray-800/50">
                             <div className="flex items-start gap-3">
                                 <MapPin className="w-5 h-5 text-accent-gold shrink-0 mt-0.5" />
-                                <span className="text-sm">__________________</span>
+                                <span className="text-sm">Calle 4 # 1B-62 Barrio Quinche, Pitalito, Huila</span>
                             </div>
                             <div className="flex items-center gap-3">
                                 <Phone className="w-5 h-5 text-accent-gold shrink-0" />
-                                <span className="text-sm">____________________</span>
+                                <a href="tel:3203976761" className="text-sm hover:text-accent-gold transition-colors">320 397 6761</a>
                             </div>
                             <div className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-accent-gold shrink-0" />
-                                <span className="text-sm">____________________</span>
+                                <a href="mailto:jonyjp1977@hotmail.com" className="text-sm hover:text-accent-gold transition-colors">jonyjp1977@hotmail.com</a>
                             </div>
                         </div>
                     </div>

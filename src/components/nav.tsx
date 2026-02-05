@@ -53,7 +53,7 @@ export default function Nav() {
                             <span className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Contacto Directo</span>
                             <div className="flex items-center gap-2 text-white font-medium hover:text-accent-gold transition-colors cursor-pointer">
                                 <Phone className="w-4 h-4 text-accent-gold" />
-                                <span>+57 312 456 7890</span>
+                                <span>+57 320 397 6761</span>
                             </div>
                         </div>
 

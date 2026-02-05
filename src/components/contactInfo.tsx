@@ -13,11 +13,11 @@ export default function ContactInfo() {
             <div className="flex gap-6 items-center">
                 <div className="flex items-center gap-2">
                     <Phone className="w-4 h-4 text-accent-gold" />
-                    <span>Llámanos: ____________________</span>
+                    <span>Llámanos: 320 397 6761</span>
                 </div>
                 <div className="flex items-center gap-2">
                     <Mail className="w-4 h-4 text-accent-gold" />
-                    <span>Email: ____________________</span>
+                    <span>Email: jonyjp1977@hotmail.com</span>
                 </div>
             </div>
         </div>
