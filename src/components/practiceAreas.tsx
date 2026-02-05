@@ -1,5 +1,5 @@
 "use client";
-import { ArrowRight, Briefcase, Building2, Gavel, Scale, Users } from "lucide-react"
+import { ArrowRight, Briefcase, Building2, Gavel, Heart, Scale, Users } from "lucide-react"
 import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 
@@ -157,12 +157,18 @@ export default function PracticeAreas() {
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 perspective-1000">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
                     <PracticeCard
                         icon={<Gavel className="w-10 h-10" />}
                         title="Asesoría Jurídica"
                         desc="Derecho civil, comercial y laboral. Elaboración y revisión de contratos. Acompañamiento en procesos judiciales y administrativos de alta complejidad."
                         delay={0.1}
+                    />
+                    <PracticeCard
+                        icon={<Heart className="w-10 h-10" />}
+                        title="Asesoría de Familia"
+                        desc="Acompañamiento especializado en procesos de divorcio, sucesiones, custodia de menores y conciliaciones, con un enfoque humano y altamente profesional."
+                        delay={0.15}
                     />
                     <PracticeCard
                         icon={<Building2 className="w-10 h-10" />}

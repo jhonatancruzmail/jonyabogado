@@ -12,7 +12,7 @@ export default function Footer() {
                     <div className="space-y-6">
                         <div className="flex items-center gap-2">
                             <Scale className="w-8 h-8 text-accent-gold" />
-                            <span className="text-xl font-serif text-white font-bold tracking-wide">JOHNNY PEÑA</span>
+                            <span className="text-xl font-serif text-white font-bold tracking-wide">JONNY PEÑA</span>
                         </div>
                         <p className="leading-relaxed text-sm">
                             Abogado y Contador Público. Especialista en la integración estratégica del derecho con la realidad financiera para brindar soluciones sólidas y sostenibles.
@@ -58,7 +58,7 @@ export default function Footer() {
                             <span className="absolute -bottom-2 left-0 w-12 h-0.5 bg-accent-gold"></span>
                         </h3>
                         <ul className="space-y-4">
-                            {['Derecho Corporativo', 'Derecho Familiar', 'Derecho Penal', 'Bienes Raíces', 'Lesiones Personales', 'Derecho Laboral'].map((item) => (
+                            {['Asesoría Jurídica', 'Asesoría de Familia', 'Asesoría Tributaria', 'Contabilidad', 'Cumplimiento'].map((item) => (
                                 <li key={item}>
                                     <a href="#" className="flex items-center gap-2 hover:text-accent-gold transition-colors duration-300 text-sm group">
                                         <span className="w-1.5 h-1.5 bg-accent-gold rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -108,7 +108,7 @@ export default function Footer() {
             {/* Bottom Bar */}
             <div className="bg-primary-dark py-6 border-t border-gray-800">
                 <div className="container mx-auto px-6 lg:px-20 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-                    <p>&copy; 2024 Johnny Augusto Peña Murcia. Todos los derechos reservados.</p>
+                    <p>&copy; {new Date().getFullYear()} Jony Augusto Peña Murcia. Todos los derechos reservados.</p>
                     <div className="flex gap-8">
                         <a href="#" className="hover:text-accent-gold transition-colors">Términos y Condiciones</a>
                         <a href="#" className="hover:text-accent-gold transition-colors">Política de Privacidad</a>

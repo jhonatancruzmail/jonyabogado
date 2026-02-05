@@ -25,8 +25,8 @@ export default function Nav() {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 lg:px-20 ${isScrolled
-                        ? "py-4 bg-primary-dark/80 backdrop-blur-xl border-b border-white/5 shadow-2xl"
-                        : "py-8 bg-transparent"
+                    ? "py-4 bg-primary-dark/80 backdrop-blur-xl border-b border-white/5 shadow-2xl"
+                    : "py-8 bg-transparent"
                     }`}
             >
                 {/* Scroll Progress Indicator */}
@@ -43,7 +43,7 @@ export default function Nav() {
                             </div>
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-xl lg:text-2xl font-serif text-white font-bold tracking-tight uppercase leading-none">Johnny Peña</span>
+                            <span className="text-xl lg:text-2xl font-serif text-white font-bold tracking-tight uppercase leading-none">Jony Peña</span>
                             <span className="text-[10px] text-accent-gold tracking-[0.4em] uppercase font-light mt-1">Abogado & Contador</span>
                         </div>
                     </div>

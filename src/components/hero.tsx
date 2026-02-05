@@ -64,7 +64,7 @@ export default function Hero() {
     }
   };
 
-  const text = "Johnny Augusto Peña Murcia";
+  const text = "Jony Augusto Peña Murcia";
   const words = text.split(" ");
 
   return (
@@ -110,7 +110,7 @@ export default function Hero() {
           <div className="overflow-visible">
             <h1 className="text-6xl lg:text-8xl font-serif text-white leading-[1.1] tracking-tight">
               <span className="block overflow-hidden pb-2">
-                <motion.span variants={titleVariants} className="block">Johnny Augusto</motion.span>
+                <motion.span variants={titleVariants} className="block">Jony Augusto</motion.span>
               </span>
               <span className="block overflow-hidden py-1">
                 <motion.span
@@ -216,7 +216,7 @@ export default function Hero() {
             >
               <Image
                 src="/abogado3.webp"
-                alt="Johnny Augusto Peña Murcia"
+                alt="Jony Augusto Peña Murcia"
                 fill
                 className="object-cover object-top relative z-10"
                 style={{ maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)' }}

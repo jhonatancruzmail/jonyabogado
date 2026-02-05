@@ -126,7 +126,7 @@ export default function Welcome() {
                             transition={{ duration: 1, delay: 0.3 }}
                             className="text-gray-400 leading-relaxed text-lg font-light"
                         >
-                            Soy Abogado y Contador Público, con más de 15 años de experiencia en el análisis integral de asuntos legales, tributarios, contables y financieros. Mi ejercicio profesional se orienta a brindar asesoría técnica, clara y responsable.
+                            Soy Abogado Contador Público, con más de 15 años de experiencia en el análisis integral de asuntos legales, tributarios, contables y financieros. Mi ejercicio profesional se orienta a brindar asesoría técnica, clara y responsable.
                         </motion.p>
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
@@ -155,11 +155,11 @@ export default function Welcome() {
                     >
                         <div className="w-20 h-20 rounded-full overflow-hidden border border-accent-gold/20 p-1 group-hover:border-accent-gold transition-colors duration-700 relative">
                             <div className="w-full h-full rounded-full overflow-hidden relative">
-                                <Image src="/abogado3.webp" alt="Johnny Augusto Peña Murcia" fill className="object-cover object-top scale-110 group-hover:scale-125 transition-transform duration-1000" />
+                                <Image src="/abogado3.webp" alt="Jony Augusto Peña Murcia" fill className="object-cover object-top scale-110 group-hover:scale-125 transition-transform duration-1000" />
                             </div>
                         </div>
                         <div>
-                            <p className="text-gold-metallic font-serif text-2xl uppercase tracking-[0.2em] group-hover:tracking-[0.3em] transition-all duration-700">Johnny Augusto Peña Murcia</p>
+                            <p className="text-gold-metallic font-serif text-2xl uppercase tracking-[0.2em] group-hover:tracking-[0.3em] transition-all duration-700">Jony Augusto Peña Murcia</p>
                             <div className="h-px w-0 group-hover:w-full bg-gold-metallic transition-all duration-1000"></div>
                             <p className="text-[10px] text-gray-500 uppercase tracking-widest mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-700">Abogado y Contador Público</p>
                         </div>
