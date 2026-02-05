@@ -68,7 +68,7 @@ export default function Hero() {
   const words = text.split(" ");
 
   return (
-    <section ref={containerRef} className="relative w-full min-h-screen flex items-center pt-40 overflow-hidden bg-primary-dark">
+    <section ref={containerRef} className="relative w-full min-h-screen flex items-center pt-30 overflow-hidden bg-primary-dark">
       {/* Background Image Overlay with Enhanced Ken Burns */}
       <div className="absolute inset-0 z-0">
         <motion.div

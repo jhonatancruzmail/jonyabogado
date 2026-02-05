@@ -1,52 +1,18 @@
 "use client";
 import { ArrowRight, Briefcase, Building2, Gavel, Heart, Scale, Users } from "lucide-react"
-import { motion, useMotionValue, useSpring, useTransform, useScroll } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 function PracticeCard({ icon, title, desc, delay }: { icon: React.ReactNode, title: string, desc: string, delay: number }) {
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
-
-    const mouseXSpring = useSpring(x);
-    const mouseYSpring = useSpring(y);
-
-    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
-
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const width = rect.width;
-        const height = rect.height;
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
-        const xPct = mouseX / width - 0.5;
-        const yPct = mouseY / height - 0.5;
-        x.set(xPct);
-        y.set(yPct);
-    };
-
-    const handleMouseLeave = () => {
-        x.set(0);
-        y.set(0);
-    };
-
     return (
         <motion.div
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{
-                rotateX,
-                rotateY,
-                transformStyle: "preserve-3d",
-            }}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 1, delay, ease: [0.16, 1, 0.3, 1] }}
             className="bg-secondary-dark p-8 border border-white/5 hover:border-accent-gold/40 transition-colors duration-500 group cursor-default relative overflow-hidden rounded-sm"
         >
-            {/* Inner Content with Z-index shift */}
-            <div style={{ transform: "translateZ(50px)" }} className="relative z-10">
+            <div className="relative z-10">
                 {/* Shimmer Effect on Hover */}
                 <motion.div
                     className="absolute -inset-10 bg-gradient-to-tr from-accent-gold/0 via-accent-gold/5 to-accent-gold/0 pointer-events-none"
@@ -55,16 +21,13 @@ function PracticeCard({ icon, title, desc, delay }: { icon: React.ReactNode, tit
                     transition={{ duration: 1.2, ease: "easeInOut" }}
                 />
 
-                <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    className="mb-10"
-                >
-                    <div className="w-20 h-20 rounded-2xl bg-primary-dark/50 backdrop-blur-sm flex items-center justify-center group-hover:bg-gold-metallic transition-all duration-500 shadow-xl border border-white/5 group-hover:border-transparent">
-                        <div className="text-accent-gold group-hover:text-black transition-colors duration-500">
+                <div className="mb-10">
+                    <div className="w-20 h-20 rounded-2xl bg-primary-dark/80 backdrop-blur-sm flex items-center justify-center group-hover:border-accent-gold transition-all duration-500 shadow-xl border border-white/10">
+                        <div className="text-accent-gold transition-colors duration-500 group-hover:drop-shadow-[0_0_8px_rgba(212,175,55,0.8)]">
                             {icon}
                         </div>
                     </div>
-                </motion.div>
+                </div>
 
                 <h3 className="text-2xl font-serif text-white mb-4 group-hover:text-gold-metallic transition-colors duration-500">
                     {title}
@@ -94,9 +57,6 @@ export default function PracticeAreas() {
         target: containerRef,
         offset: ["start end", "end start"]
     });
-
-    const xParallax = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-    const opacityParallax = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 0.05, 0.05, 0]);
 
     return (
         <section ref={containerRef} className="py-32 lg:py-48 bg-primary-dark overflow-hidden relative">

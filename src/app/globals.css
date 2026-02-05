@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+html {
+  font-size: 18px; /* Aumentado de 16px por defecto para hacer la letra más grande */
+}
+
+:root {
+  --background: #0f1218;
+  --foreground: #ededed;
+}
+
 @theme {
   --color-background: #0f1218;
   --color-foreground: #ededed;
@@ -12,16 +21,13 @@
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-:root {
-  --background: #0f1218;
-  --foreground: #ededed;
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom scrollbar for webkit */
