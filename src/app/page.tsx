@@ -21,6 +21,7 @@ import Hero from "@/components/hero";
 import Welcome from "@/components/welcome";
 import PracticeAreas from "@/components/practiceAreas"
 import Values from "@/components/values";
+import Location from "@/components/location";
 import Footer from "@/components/footer";
 import WhatsAppButton from "@/components/whatsappButton";
 
@@ -41,6 +42,9 @@ export default function Home() {
 
       {/* Mission, Vision & Values */}
       <Values />
+
+      {/* Location Section */}
+      <Location />
 
       {/* Footer */}
       <Footer />
