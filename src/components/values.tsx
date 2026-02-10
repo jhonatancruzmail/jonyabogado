@@ -1,16 +1,9 @@
 "use client";
 import { ShieldCheck, Target, Eye, CheckCircle2, Award, Zap } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import ScrollSequence from "./scrollSequence";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Values() {
-    const sequenceSectionRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress: sequenceProgress } = useScroll({
-        target: sequenceSectionRef,
-        offset: ["start start", "end end"]
-    });
-
     const values = [
         { title: "Ética profesional", desc: "Actuación transparente, honesta y responsable en cada decisión.", icon: <ShieldCheck className="w-6 h-6" /> },
         { title: "Rigor técnico", desc: "Precisión absoluta en el análisis jurídico, contable y financiero.", icon: <Award className="w-6 h-6" /> },
@@ -26,64 +19,6 @@ export default function Values() {
         "Acompañamiento personalizado y directo",
         "Orientación preventiva para evitar riesgos futuros"
     ];
-
-    // Define staggered scroll stages for 5 items
-    // Total section scroll is from 0 to 1.
-    // We'll use the 0.1 to 0.9 range for the items to avoid edges.
-    const getMarkerStyle = (index: number) => {
-        const itemStep = 0.8 / advantages.length; // 0.16 each
-        const start = 0.1 + (index * itemStep);
-        const middle = start + (itemStep * 0.4);
-        const end = start + itemStep;
-
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        return useTransform(
-            sequenceProgress,
-            [0, start, middle, end],
-            ["rgba(212,175,55,0)", "rgba(212,175,55,0)", "rgba(212,175,55,1)", "rgba(212,175,55,1)"]
-        );
-    };
-
-    const getTextStyle = (index: number) => {
-        const itemStep = 0.8 / advantages.length;
-        const start = 0.1 + (index * itemStep);
-        const middle = start + (itemStep * 0.4);
-        const end = start + itemStep;
-
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        return useTransform(
-            sequenceProgress,
-            [0, start, middle, end],
-            ["#4b5563", "#4b5563", "#d4af37", "#ffffff"]
-        );
-    };
-
-    const getRotateStyle = (index: number) => {
-        const itemStep = 0.8 / advantages.length;
-        const start = 0.1 + (index * itemStep);
-        const middle = start + (itemStep * 0.4);
-        const end = start + itemStep;
-
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        return useTransform(
-            sequenceProgress,
-            [0, start, middle, end],
-            ["45deg", "45deg", "135deg", "135deg"]
-        );
-    };
-
-    const getXOffset = (index: number) => {
-        const itemStep = 0.8 / advantages.length;
-        const start = 0.1 + (index * itemStep);
-        const end = start + (itemStep * 0.4);
-
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        return useTransform(
-            sequenceProgress,
-            [0, start, end],
-            [0, 0, 15]
-        );
-    };
 
     return (
         <section className="bg-secondary-dark relative">
@@ -130,75 +65,95 @@ export default function Values() {
                 </div>
             </div>
 
-            {/* Scroll Sequence Locked Section */}
-            <div ref={sequenceSectionRef} className="relative h-[300vh] bg-primary-dark">
-                <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.05)_0%,transparent_70%)]" />
+            {/* Why Work with Me - Refined Section */}
+            <div className="relative py-24 lg:py-32 bg-primary-dark overflow-hidden">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.05)_0%,transparent_70%)]" />
 
-                    <div className="container mx-auto px-6 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center relative z-10 w-full">
+                <div className="container mx-auto px-6 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center relative z-10 w-full">
 
-                        {/* Left Side: Why Work with Me */}
-                        <div className="space-y-12 bg-primary-dark/60 backdrop-blur-md p-8 lg:p-12 border border-white/5 rounded-sm shadow-2xl">
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8 }}
-                            >
-                                <h2 className="text-5xl lg:text-6xl font-serif text-white mb-6 leading-tight">¿Por qué <br /> <span className="text-gold-metallic">trabajar conmigo?</span></h2>
-                                <div className="h-0.5 bg-accent-gold/30 w-[120px]"></div>
-                            </motion.div>
+                    {/* Left Side: Why Work with Me */}
+                    <div className="space-y-12 bg-primary-dark/60 backdrop-blur-md p-8 lg:p-12 border border-white/5 rounded-sm shadow-2xl">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <h2 className="text-5xl lg:text-6xl font-serif text-white mb-6 leading-tight">¿Por qué <br /> <span className="text-gold-metallic">trabajar conmigo?</span></h2>
+                            <div className="h-0.5 bg-accent-gold/30 w-[120px]"></div>
+                        </motion.div>
 
-                            <div className="grid gap-6">
-                                {advantages.map((adv, idx) => (
-                                    <div key={idx} className="flex items-center gap-8 group">
-                                        <div className="relative flex items-center justify-center">
-                                            <motion.div
-                                                style={{
-                                                    backgroundColor: getMarkerStyle(idx),
-                                                    rotate: getRotateStyle(idx)
-                                                }}
-                                                className="w-4 h-4 border border-accent-gold/50"
-                                            ></motion.div>
-                                        </div>
-                                        <motion.span
-                                            style={{
-                                                color: getTextStyle(idx),
-                                                x: getXOffset(idx)
-                                            }}
-                                            className="text-lg font-light tracking-wide transition-all duration-300"
-                                        >
-                                            {adv}
-                                        </motion.span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Right Side: Scroll Sequence */}
-                        <div className="relative flex justify-center items-center">
-                            <motion.div
-                                style={{
-                                    opacity: useTransform(sequenceProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]),
-                                    scale: useTransform(sequenceProgress, [0, 0.15], [0.8, 1])
-                                }}
-                                className="relative z-10"
-                            >
-                                <ScrollSequence
-                                    frameCount={240}
-                                    path="/framesMonedas"
-                                    progress={sequenceProgress}
-                                    className="w-full max-w-[450px] aspect-square rounded-full border border-gold-metallic/20  bg-black overflow-hidden"
-                                />
-                                <motion.p
-                                    style={{ opacity: useTransform(sequenceProgress, [0, 0.2, 0.8, 1], [0, 0.6, 0.6, 0]) }}
-                                    className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-[10px] text-gold-metallic uppercase tracking-[0.4em] whitespace-nowrap"
+                        <div className="grid gap-6">
+                            {advantages.map((adv, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: idx * 0.1 }}
+                                    className="flex items-center gap-8 group"
                                 >
-                                    Solidez Financiera
-                                </motion.p>
-                            </motion.div>
-                            <div className="absolute inset-0 bg-accent-gold/10 blur-[100px] rounded-full -z-10" />
+                                    <div className="relative flex items-center justify-center">
+                                        <motion.div
+                                            initial={{ rotate: 45, backgroundColor: "rgba(212,175,55,0)" }}
+                                            whileInView={{ rotate: 135, backgroundColor: "rgba(212,175,55,1)" }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.8, delay: idx * 0.1 + 0.3 }}
+                                            className="w-4 h-4 border border-accent-gold/50"
+                                        />
+                                    </div>
+                                    <motion.span
+                                        className="text-lg font-light tracking-wide text-white group-hover:text-gold-metallic transition-colors duration-300"
+                                    >
+                                        {adv}
+                                    </motion.span>
+                                </motion.div>
+                            ))}
                         </div>
+                    </div>
+
+                    {/* Right Side: Professional Image */}
+                    <div className="relative flex justify-center items-center">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                            className="relative z-10 w-full max-w-[500px] aspect-[4/5] rounded-sm overflow-hidden border border-white/10 group shadow-2xl"
+                        >
+                            <Image
+                                src="/abogado1.webp"
+                                alt="Experto Jurídico y Contable"
+                                fill
+                                className="object-cover object-top grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
+                                priority
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-transparent to-transparent opacity-60" />
+
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ delay: 0.8 }}
+                                className="absolute bottom-8 left-8 right-8 p-6 bg-primary-dark/40 backdrop-blur-md border border-white/10 rounded-sm"
+                            >
+                                <p className="text-gold-metallic uppercase tracking-[0.4em] text-[10px] font-bold mb-2">Compromiso Total</p>
+                                <h3 className="text-white font-serif text-xl">Excelencia en cada detalle</h3>
+                            </motion.div>
+                        </motion.div>
+
+                        {/* Decorative Background Elements */}
+                        <div className="absolute -inset-4 bg-accent-gold/5 blur-[80px] rounded-full -z-10 animate-pulse" />
+                        <motion.div
+                            animate={{
+                                rotate: [0, 360],
+                            }}
+                            transition={{
+                                duration: 20,
+                                repeat: Infinity,
+                                ease: "linear"
+                            }}
+                            className="absolute -top-10 -right-10 w-40 h-40 border border-gold-metallic/10 rounded-full border-dashed"
+                        />
                     </div>
                 </div>
             </div>
