@@ -1,10 +1,41 @@
 "use client";
-import { MapPin, Clock, Phone, ExternalLink, Navigation } from "lucide-react";
+import React, { memo } from "react";
+import { MapPin, Clock, ExternalLink, Navigation } from "lucide-react";
 import { motion } from "framer-motion";
 
-export default function Location() {
-    const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Calle+4+%23+1B-62+Barrio+Quinche+Pitalito+Huila";
+const MAP_URL = "https://www.google.com/maps/search/?api=1&query=Calle+4+%23+1B-62+Barrio+Quinche+Pitalito+Huila";
 
+const INFO_CARDS = [
+    {
+        icon: <MapPin className="w-6 h-6 text-accent-gold" />,
+        title: "Dirección",
+        content: "Calle 4 # 1B-62 Barrio Quinche\nPitalito, Huila"
+    },
+    {
+        icon: <Clock className="w-6 h-6 text-accent-gold" />,
+        title: "Horarios de Atención",
+        content: "Lunes a Viernes: 8:00 AM – 6:00 PM\nSábados: 9:00 AM – 12:00 PM"
+    }
+];
+
+const InfoCard = memo(({ icon, title, content }: { icon: React.ReactNode, title: string, content: string }) => (
+    <motion.div
+        whileHover={{ x: 10 }}
+        className="flex gap-6 items-start group"
+    >
+        <div className="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10 group-hover:border-accent-gold/50 transition-colors">
+            {icon}
+        </div>
+        <div>
+            <h4 className="text-white font-serif text-xl mb-1">{title}</h4>
+            <p className="text-gray-400 font-light whitespace-pre-line">{content}</p>
+        </div>
+    </motion.div>
+));
+
+InfoCard.displayName = "InfoCard";
+
+export default function Location() {
     return (
         <section className="py-24 lg:py-40 bg-primary-dark relative overflow-hidden">
             {/* Background decorative elements */}
@@ -43,37 +74,13 @@ export default function Location() {
                         </p>
 
                         <div className="grid gap-8">
-                            {/* Address Card */}
-                            <motion.div
-                                whileHover={{ x: 10 }}
-                                className="flex gap-6 items-start group"
-                            >
-                                <div className="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10 group-hover:border-accent-gold/50 transition-colors">
-                                    <MapPin className="w-6 h-6 text-accent-gold" />
-                                </div>
-                                <div>
-                                    <h4 className="text-white font-serif text-xl mb-1">Dirección</h4>
-                                    <p className="text-gray-400 font-light">Calle 4 # 1B-62 Barrio Quinche<br />Pitalito, Huila</p>
-                                </div>
-                            </motion.div>
-
-                            {/* Hours Card */}
-                            <motion.div
-                                whileHover={{ x: 10 }}
-                                className="flex gap-6 items-start group"
-                            >
-                                <div className="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10 group-hover:border-accent-gold/50 transition-colors">
-                                    <Clock className="w-6 h-6 text-accent-gold" />
-                                </div>
-                                <div>
-                                    <h4 className="text-white font-serif text-xl mb-1">Horarios de Atención</h4>
-                                    <p className="text-gray-400 font-light">Lunes a Viernes: 8:00 AM – 6:00 PM<br />Sábados: 9:00 AM – 12:00 PM</p>
-                                </div>
-                            </motion.div>
+                            {INFO_CARDS.map((card, index) => (
+                                <InfoCard key={index} {...card} />
+                            ))}
                         </div>
 
                         <motion.a
-                            href={googleMapsUrl}
+                            href={MAP_URL}
                             target="_blank"
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
@@ -85,7 +92,7 @@ export default function Location() {
                         </motion.a>
                     </motion.div>
 
-                    {/* Right Side: Visual Section / Map Representation */}
+                    {/* Right Side: Map Representation */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
@@ -93,13 +100,10 @@ export default function Location() {
                         transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
                         className="relative group"
                     >
-                        {/* High-end Stylized Box for "Map" */}
                         <div className="aspect-[4/5] bg-secondary-dark border border-white/5 relative overflow-hidden rounded-sm shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
-                            {/* Artistic Map Background (Abstract Pattern) */}
                             <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
                             <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-transparent to-transparent z-10" />
 
-                            {/* Center Logo/Icon */}
                             <div className="absolute inset-0 flex flex-col items-center justify-center z-20 space-y-6">
                                 <motion.div
                                     animate={{
@@ -117,14 +121,12 @@ export default function Location() {
                                 </div>
                             </div>
 
-                            {/* Decorative Lines crossing across the "Map" */}
                             <div className="absolute top-1/4 left-0 w-full h-px bg-white/5 -rotate-12" />
                             <div className="absolute top-1/2 left-0 w-full h-px bg-white/5 rotate-6" />
                             <div className="absolute top-0 left-1/3 w-px h-full bg-white/5 rotate-12" />
 
-                            {/* Hover Overlay */}
                             <a
-                                href={googleMapsUrl}
+                                href={MAP_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="absolute inset-0 z-30 flex items-center justify-center bg-accent-gold/0 group-hover:bg-accent-gold/10 transition-colors duration-700 cursor-pointer"
@@ -135,7 +137,6 @@ export default function Location() {
                             </a>
                         </div>
 
-                        {/* Floating elements behind box */}
                         <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent-gold/10 blur-[60px] rounded-full" />
                         <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent-gold/10 blur-[60px] rounded-full" />
                     </motion.div>

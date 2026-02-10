@@ -1,9 +1,17 @@
 "use client";
+import React, { memo } from "react";
 import { ArrowRight, Briefcase, Building2, Gavel, Heart, Scale, Users } from "lucide-react"
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
 
-function PracticeCard({ icon, title, desc, delay }: { icon: React.ReactNode, title: string, desc: string, delay: number }) {
+interface PracticeCardProps {
+    icon: React.ReactNode;
+    title: string;
+    desc: string;
+    delay: number;
+}
+
+const PracticeCard = memo(({ icon, title, desc, delay }: PracticeCardProps) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -49,14 +57,45 @@ function PracticeCard({ icon, title, desc, delay }: { icon: React.ReactNode, tit
             <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/0 to-accent-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         </motion.div>
     )
-}
+});
+
+PracticeCard.displayName = "PracticeCard";
+
+const PRACTICE_AREAS_DATA = [
+    {
+        icon: <Gavel className="w-10 h-10" />,
+        title: "Asesoría Jurídica",
+        desc: "Derecho civil, comercial y laboral. Elaboración y revisión de contratos. Acompañamiento en procesos judiciales y administrativos de alta complejidad.",
+        delay: 0.1
+    },
+    {
+        icon: <Heart className="w-10 h-10" />,
+        title: "Asesoría de Familia",
+        desc: "Acompañamiento especializado en procesos de divorcio, sucesiones, custodia de menores y conciliaciones, con un enfoque humano y altamente profesional.",
+        delay: 0.15
+    },
+    {
+        icon: <Building2 className="w-10 h-10" />,
+        title: "Asesoría Tributaria",
+        desc: "Planeación tributaria responsable para empresas y personas. Elaboración de declaraciones complejas y atención de requerimientos especiales DIAN.",
+        delay: 0.2
+    },
+    {
+        icon: <Users className="w-10 h-10" />,
+        title: "Contabilidad",
+        desc: "Organización contable bajo estándares internacionales. Informes financieros críticos y análisis para la toma de decisiones gerenciales.",
+        delay: 0.3
+    },
+    {
+        icon: <Briefcase className="w-10 h-10" />,
+        title: "Cumplimiento",
+        desc: "Evaluación de riesgos integrales legales y financieros. Gestión del riesgo administrativo y contractual preventivo con enfoque estratégico.",
+        delay: 0.4
+    }
+];
 
 export default function PracticeAreas() {
-    const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start end", "end start"]
-    });
+    const containerRef = useRef<HTMLDivElement>(null);
 
     return (
         <section id="servicios" ref={containerRef} className="py-32 lg:py-48 bg-primary-dark overflow-hidden relative">
@@ -118,36 +157,12 @@ export default function PracticeAreas() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
-                    <PracticeCard
-                        icon={<Gavel className="w-10 h-10" />}
-                        title="Asesoría Jurídica"
-                        desc="Derecho civil, comercial y laboral. Elaboración y revisión de contratos. Acompañamiento en procesos judiciales y administrativos de alta complejidad."
-                        delay={0.1}
-                    />
-                    <PracticeCard
-                        icon={<Heart className="w-10 h-10" />}
-                        title="Asesoría de Familia"
-                        desc="Acompañamiento especializado en procesos de divorcio, sucesiones, custodia de menores y conciliaciones, con un enfoque humano y altamente profesional."
-                        delay={0.15}
-                    />
-                    <PracticeCard
-                        icon={<Building2 className="w-10 h-10" />}
-                        title="Asesoría Tributaria"
-                        desc="Planeación tributaria responsable para empresas y personas. Elaboración de declaraciones complejas y atención de requerimientos especiales DIAN."
-                        delay={0.2}
-                    />
-                    <PracticeCard
-                        icon={<Users className="w-10 h-10" />}
-                        title="Contabilidad"
-                        desc="Organización contable bajo estándares internacionales. Informes financieros críticos y análisis para la toma de decisiones gerenciales."
-                        delay={0.3}
-                    />
-                    <PracticeCard
-                        icon={<Briefcase className="w-10 h-10" />}
-                        title="Cumplimiento"
-                        desc="Evaluación de riesgos integrales legales y financieros. Gestión del riesgo administrativo y contractual preventivo con enfoque estratégico."
-                        delay={0.4}
-                    />
+                    {PRACTICE_AREAS_DATA.map((area, index) => (
+                        <PracticeCard
+                            key={index}
+                            {...area}
+                        />
+                    ))}
                 </div>
             </div>
         </section>

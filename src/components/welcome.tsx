@@ -1,7 +1,52 @@
 "use client";
+import React, { memo } from "react";
 import { Briefcase, Scale } from "lucide-react";
 import Image from "next/image";
 import { motion, useSpring, useMotionValue } from "framer-motion";
+
+const STATS_DATA = [
+    {
+        icon: <Briefcase className="w-6 h-6 text-accent-gold" />,
+        value: "15+",
+        label: "Años de Experiencia \nInterdisciplinaria",
+        type: "secondary"
+    },
+    {
+        icon: <Scale className="w-6 h-6 text-black" />,
+        value: "Firme",
+        label: "Seguridad Jurídica \ny Financiera",
+        type: "primary"
+    }
+];
+
+const StatCard = memo(({ icon, value, label, type, delay }: { icon: React.ReactNode, value: string, label: string, type: string, delay: number }) => (
+    <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay }}
+        whileHover={{ y: -10, ...(type === 'primary' ? { scale: 1.02 } : { backgroundColor: "rgba(255, 255, 255, 0.05)" }) }}
+        className={`${type === 'primary'
+                ? "bg-gold-metallic p-8 flex flex-col justify-center gap-3 w-64 shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)]"
+                : "bg-white/5 backdrop-blur-md p-8 flex flex-col justify-center gap-3 w-64 border border-white/5"
+            } transition-all duration-500 rounded-sm group/${type === 'primary' ? 'stat' : 'card'}`}
+    >
+        <div className="flex items-center gap-4">
+            <div className={`${type === 'primary' ? 'bg-black/10' : 'bg-accent-gold/10 group-hover/card:bg-accent-gold'
+                } p-3 rounded-lg transition-colors duration-500`}>
+                {icon}
+            </div>
+            <span className={`text-${type === 'primary' ? '3xl animate-pulse-slow' : '4xl'} font-serif text-${type === 'primary' ? 'black' : 'white'} uppercase tracking-tight`}>
+                {value}
+            </span>
+        </div>
+        <span className={`text-[10px] text-${type === 'primary' ? 'black' : 'gray-400'} uppercase tracking-[0.2em] leading-tight ${type === 'primary' ? 'font-bold opacity-70 group-hover/stat:opacity-100' : ''} transition-opacity`}>
+            {label.split('\n').map((line, i) => <React.Fragment key={i}>{line}<br /></React.Fragment>)}
+        </span>
+    </motion.div>
+));
+
+StatCard.displayName = "StatCard";
 
 export default function Welcome() {
     // Magnetic effect for signature
@@ -25,11 +70,9 @@ export default function Welcome() {
 
     return (
         <section className="py-24 lg:py-40 bg-secondary-dark relative overflow-hidden">
-            {/* Background Grain/Noise or subtle pattern could go here */}
-
             <div className="container mx-auto px-6 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
 
-                {/* Left Collage with Dramatic High-End Entrance */}
+                {/* Left Collage */}
                 <div className="relative h-[650px] w-full perspective-2000">
                     <motion.div
                         initial={{ opacity: 0, scale: 1.1, rotateY: 25, x: -50 }}
@@ -62,7 +105,6 @@ export default function Welcome() {
                         />
                     </motion.div>
 
-                    {/* Decorative Background Element */}
                     <motion.div
                         animate={{
                             rotate: 360,
@@ -101,7 +143,7 @@ export default function Welcome() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 1.5, delay: 0.8, ease: "circOut" }}
                                 className="h-px bg-accent-gold/50"
-                            ></motion.span>
+                            />
                             <motion.div
                                 animate={{ rotate: [0, 15, -15, 0] }}
                                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -114,7 +156,7 @@ export default function Welcome() {
                                 viewport={{ once: true }}
                                 transition={{ duration: 1.5, delay: 0.8, ease: "circOut" }}
                                 className="h-px bg-accent-gold/50"
-                            ></motion.span>
+                            />
                         </div>
                     </motion.div>
 
@@ -142,7 +184,7 @@ export default function Welcome() {
                         </motion.div>
                     </div>
 
-                    {/* Signature with Magnetic Effect */}
+                    {/* Signature */}
                     <motion.div
                         onMouseMove={handleMouseMove}
                         onMouseLeave={handleMouseLeave}
@@ -166,39 +208,13 @@ export default function Welcome() {
                     </motion.div>
 
                     <div className="flex flex-wrap gap-8 mt-12">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 1 }}
-                            whileHover={{ y: -10, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
-                            className="bg-white/5 backdrop-blur-md p-8 flex flex-col justify-center gap-3 w-64 border border-white/5 transition-all duration-500 rounded-sm group/card"
-                        >
-                            <div className="flex items-center gap-4">
-                                <div className="p-3 bg-accent-gold/10 rounded-lg group-hover/card:bg-accent-gold transition-colors duration-500">
-                                    <Briefcase className="w-6 h-6 text-accent-gold group-hover/card:text-black transition-colors" />
-                                </div>
-                                <span className="text-4xl font-serif text-white">15+</span>
-                            </div>
-                            <span className="text-[10px] text-gray-400 uppercase tracking-[0.2em] leading-tight">Años de Experiencia <br />Interdisciplinaria</span>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 1.1 }}
-                            whileHover={{ y: -10, scale: 1.02 }}
-                            className="bg-gold-metallic p-8 flex flex-col justify-center gap-3 w-64 shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)] transition-all duration-500 rounded-sm group/stat"
-                        >
-                            <div className="flex items-center gap-4">
-                                <div className="p-3 bg-black/10 rounded-lg">
-                                    <Scale className="w-6 h-6 text-black" />
-                                </div>
-                                <span className="text-3xl font-serif text-black uppercase tracking-tighter">Firme</span>
-                            </div>
-                            <span className="text-[10px] text-black font-bold uppercase tracking-[0.2em] leading-tight opacity-70 group-hover/stat:opacity-100 transition-opacity">Seguridad Jurídica <br />y Financiera</span>
-                        </motion.div>
+                        {STATS_DATA.map((stat, index) => (
+                            <StatCard
+                                key={index}
+                                {...stat}
+                                delay={1 + (index * 0.1)}
+                            />
+                        ))}
                     </div>
 
                 </div>

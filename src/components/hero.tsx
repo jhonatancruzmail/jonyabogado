@@ -1,7 +1,42 @@
 "use client";
 import Image from "next/image";
 import { motion, useScroll, useTransform, Variants, useSpring, useMotionValue } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.3
+    }
+  }
+};
+
+const titleVariants: Variants = {
+  hidden: { y: 40, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1.2,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }
+};
+
+const lineVariants: Variants = {
+  hidden: { scaleX: 0, originX: 0 },
+  visible: {
+    scaleX: 1,
+    transition: {
+      duration: 1.5,
+      ease: [0.16, 1, 0.3, 1],
+      delay: 0.5
+    }
+  }
+};
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,44 +63,6 @@ export default function Hero() {
     mouseX.set(0);
     mouseY.set(0);
   };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const titleVariants: Variants = {
-    hidden: { y: 40, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 1.2,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    }
-  };
-
-  const lineVariants: Variants = {
-    hidden: { scaleX: 0, originX: 0 },
-    visible: {
-      scaleX: 1,
-      transition: {
-        duration: 1.5,
-        ease: [0.16, 1, 0.3, 1],
-        delay: 0.5
-      }
-    }
-  };
-
-  const text = "Jony Augusto Peña Murcia";
-  const words = text.split(" ");
 
   return (
     <section ref={containerRef} className="relative w-full min-h-screen flex items-center pt-0 lg:pt-32 overflow-hidden bg-primary-dark">

@@ -4,19 +4,17 @@ import Image from "next/image";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { useState, useEffect } from "react";
 
+const SCROLL_THRESHOLD = 50;
+
 export default function Nav() {
     const { scrollY } = useScroll();
     const [isScrolled, setIsScrolled] = useState(false);
 
     useMotionValueEvent(scrollY, "change", (latest) => {
-        if (latest > 50) {
-            setIsScrolled(true);
-        } else {
-            setIsScrolled(false);
-        }
+        setIsScrolled(latest > SCROLL_THRESHOLD);
     });
 
-    const scrollProgress = useTransform(scrollY, [0, 2000], [0, 100]);
+    const scrollProgress = useTransform(scrollY, [0, 2000], ["0%", "100%"]);
 
     return (
         <>
@@ -32,7 +30,7 @@ export default function Nav() {
                 {/* Scroll Progress Indicator */}
                 <motion.div
                     className="absolute bottom-0 left-0 h-[2px] bg-accent-gold z-50"
-                    style={{ width: `${scrollProgress}%`, opacity: isScrolled ? 1 : 0 }}
+                    style={{ width: scrollProgress, opacity: isScrolled ? 1 : 0 }}
                 />
 
                 <div className="max-w-7xl mx-auto flex justify-between items-center">

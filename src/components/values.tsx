@@ -3,23 +3,23 @@ import { ShieldCheck, Target, Eye, CheckCircle2, Award, Zap } from "lucide-react
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const VALUES_DATA = [
+    { title: "Ética profesional", desc: "Actuación transparente, honesta y responsable en cada decisión.", icon: <ShieldCheck className="w-6 h-6" /> },
+    { title: "Rigor técnico", desc: "Precisión absoluta en el análisis jurídico, contable y financiero.", icon: <Award className="w-6 h-6" /> },
+    { title: "Responsabilidad", desc: "Compromiso inquebrantable con cada asunto encomendado.", icon: <CheckCircle2 className="w-6 h-6" /> },
+    { title: "Confidencialidad", desc: "Manejo estrictamente reservado y seguro de toda la información.", icon: <Zap className="w-6 h-6" /> },
+    { title: "Cumplimiento", desc: "Respeto estricto por el marco normativo y legal vigente.", icon: <ShieldCheck className="w-6 h-6" /> },
+];
+
+const ADVANTAGES_DATA = [
+    "Enfoque interdisciplinario único (Abogado y Contador)",
+    "Análisis 360° de la situación jurídico-financiera",
+    "Lenguaje claro que traduce la complejidad técnica",
+    "Acompañamiento personalizado y directo",
+    "Orientación preventiva para evitar riesgos futuros"
+];
+
 export default function Values() {
-    const values = [
-        { title: "Ética profesional", desc: "Actuación transparente, honesta y responsable en cada decisión.", icon: <ShieldCheck className="w-6 h-6" /> },
-        { title: "Rigor técnico", desc: "Precisión absoluta en el análisis jurídico, contable y financiero.", icon: <Award className="w-6 h-6" /> },
-        { title: "Responsabilidad", desc: "Compromiso inquebrantable con cada asunto encomendado.", icon: <CheckCircle2 className="w-6 h-6" /> },
-        { title: "Confidencialidad", desc: "Manejo estrictamente reservado y seguro de toda la información.", icon: <Zap className="w-6 h-6" /> },
-        { title: "Cumplimiento", desc: "Respeto estricto por el marco normativo y legal vigente.", icon: <ShieldCheck className="w-6 h-6" /> },
-    ];
-
-    const advantages = [
-        "Enfoque interdisciplinario único (Abogado y Contador)",
-        "Análisis 360° de la situación jurídico-financiera",
-        "Lenguaje claro que traduce la complejidad técnica",
-        "Acompañamiento personalizado y directo",
-        "Orientación preventiva para evitar riesgos futuros"
-    ];
-
     return (
         <section className="bg-secondary-dark relative">
             <div className="container mx-auto px-6 lg:px-20 relative z-10 py-24 lg:pt-40 lg:pb-0 font-sans">
@@ -84,7 +84,7 @@ export default function Values() {
                         </motion.div>
 
                         <div className="grid gap-6">
-                            {advantages.map((adv, idx) => (
+                            {ADVANTAGES_DATA.map((adv, idx) => (
                                 <motion.div
                                     key={idx}
                                     initial={{ opacity: 0, x: -20 }}
@@ -168,7 +168,7 @@ export default function Values() {
                         </p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 perspective-1000">
-                        {values.map((v, idx) => (
+                        {VALUES_DATA.map((v, idx) => (
                             <motion.div
                                 key={idx}
                                 initial={{ opacity: 0, y: 40 }}
