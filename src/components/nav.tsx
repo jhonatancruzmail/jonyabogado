@@ -42,7 +42,7 @@ export default function Nav() {
                         </div>
                         <div className="flex flex-col">
                             <span className="text-xl lg:text-2xl font-serif text-white font-bold tracking-tight uppercase leading-none">Jony Peña</span>
-                            <span className="text-[10px] text-accent-gold tracking-[0.4em] uppercase font-light mt-1">Abogado & Contador</span>
+                            <span className="text-[10px] text-accent-gold tracking-[0.4em] uppercase font-light mt-1">Abogado y Contador Público</span>
                         </div>
                     </div>
 

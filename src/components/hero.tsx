@@ -112,7 +112,7 @@ export default function Hero() {
                 transition={{ duration: 1.2, delay: 1.2, ease: "easeOut" }}
                 className="text-gray-400 text-xl lg:text-3xl block mb-4 lg:mt-6 font-light tracking-widest uppercase order-1 lg:order-2"
               >
-                Abogado <span className="lg:inline hidden">& Contador Público</span><span className="lg:hidden inline">& Contador</span>
+                Abogado y Contador Público
               </motion.span>
               <div className="order-2 lg:order-1">
                 <span className="block overflow-hidden pb-2">

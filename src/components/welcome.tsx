@@ -27,8 +27,8 @@ const StatCard = memo(({ icon, value, label, type, delay }: { icon: React.ReactN
         transition={{ duration: 0.8, delay }}
         whileHover={{ y: -10, ...(type === 'primary' ? { scale: 1.02 } : { backgroundColor: "rgba(255, 255, 255, 0.05)" }) }}
         className={`${type === 'primary'
-                ? "bg-gold-metallic p-8 flex flex-col justify-center gap-3 w-64 shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)]"
-                : "bg-white/5 backdrop-blur-md p-8 flex flex-col justify-center gap-3 w-64 border border-white/5"
+            ? "bg-gold-metallic p-8 flex flex-col justify-center gap-3 w-64 shadow-[0_20px_40px_-10px_rgba(212,175,55,0.3)]"
+            : "bg-white/5 backdrop-blur-md p-8 flex flex-col justify-center gap-3 w-64 border border-white/5"
             } transition-all duration-500 rounded-sm group/${type === 'primary' ? 'stat' : 'card'}`}
     >
         <div className="flex items-center gap-4">
@@ -168,7 +168,7 @@ export default function Welcome() {
                             transition={{ duration: 1, delay: 0.3 }}
                             className="text-gray-400 leading-relaxed text-lg font-light"
                         >
-                            Soy Abogado Contador Público, con más de 15 años de experiencia en el análisis integral de asuntos legales, tributarios, contables y financieros. Mi ejercicio profesional se orienta a brindar asesoría técnica, clara y responsable.
+                            Soy Abogado y Contador Público, con más de 15 años de experiencia en el análisis integral de asuntos legales, tributarios, contables y financieros. Mi ejercicio profesional se orienta a brindar asesoría técnica, clara y responsable.
                         </motion.p>
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}

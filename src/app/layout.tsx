@@ -18,8 +18,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Jony Peña Abogado - Contable",
-  description: "Jurídico - Contable",
+  title: "Jony Peña - Abogado y Contador Público",
+  description: "Asesoría Integral: Derecho, Contabilidad y Finanzas",
 };
 
 export default function RootLayout({
