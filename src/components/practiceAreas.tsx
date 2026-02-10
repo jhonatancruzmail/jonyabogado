@@ -18,7 +18,7 @@ const PracticeCard = memo(({ icon, title, desc, delay }: PracticeCardProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 1, delay, ease: [0.16, 1, 0.3, 1] }}
-            className="bg-secondary-dark p-8 border border-white/5 hover:border-accent-gold/40 transition-colors duration-500 group cursor-default relative overflow-hidden rounded-sm"
+            className="bg-secondary-dark p-8 border border-accent-gold/15 hover:border-accent-gold/40 transition-colors duration-500 group cursor-default relative overflow-hidden rounded-sm"
         >
             <div className="relative z-10">
                 {/* Shimmer Effect on Hover */}

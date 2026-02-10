@@ -33,7 +33,7 @@ export default function Values() {
                         className="bg-primary-dark p-12 lg:p-16 border border-white/5 relative group overflow-hidden rounded-sm shadow-2xl"
                     >
                         <div className="absolute top-0 left-0 w-full h-1 bg-accent-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
-                        <div className="flex items-center gap-6 text-gold-metallic mb-8">
+                        <div className="flex items-center gap-6 text-accent-gold mb-8">
                             <div className="p-4 bg-accent-gold/10 rounded-xl">
                                 <Target className="w-10 h-10" />
                             </div>
@@ -52,7 +52,7 @@ export default function Values() {
                         className="bg-primary-dark p-12 lg:p-16 border border-white/5 relative group overflow-hidden rounded-sm shadow-2xl"
                     >
                         <div className="absolute top-0 left-0 w-full h-1 bg-accent-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
-                        <div className="flex items-center gap-6 text-gold-metallic mb-8">
+                        <div className="flex items-center gap-6 text-accent-gold mb-8">
                             <div className="p-4 bg-accent-gold/10 rounded-xl">
                                 <Eye className="w-10 h-10" />
                             </div>
