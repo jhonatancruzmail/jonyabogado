@@ -80,10 +80,10 @@ export default function Hero() {
           className="relative w-full h-full"
         >
           <Image
-            src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2070&auto=format&fit=crop"
+            src="/heroBackground.jpeg"
             alt="Law Library Background"
             fill
-            className="object-cover opacity-15 grayscale-[0.5]"
+            className="object-cover opacity-40 grayscale-[0.5]"
             priority
           />
         </motion.div>
@@ -166,13 +166,16 @@ export default function Hero() {
             variants={titleVariants}
             className="flex flex-wrap gap-6 pt-4"
           >
-            <motion.button
+            <motion.a
+              href="https://wa.me/573143873177"
+              target="_blank"
+              rel="noopener noreferrer"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               style={{ x: springX, y: springY }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-gold-metallic text-black font-bold px-10 py-5 transition-all duration-500 relative overflow-hidden group rounded-sm"
+              className="bg-gold-metallic text-black font-bold px-10 py-5 transition-all duration-500 relative overflow-hidden group rounded-sm inline-block"
             >
               <span className="relative z-10">Agendar Consulta</span>
               <motion.div
@@ -180,7 +183,7 @@ export default function Hero() {
                 initial={false}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-            </motion.button>
+            </motion.a>
             <motion.a
               href="#servicios"
               whileHover={{

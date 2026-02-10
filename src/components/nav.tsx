@@ -49,13 +49,22 @@ export default function Nav() {
                     <div className="hidden md:flex items-center gap-8">
                         <div className="flex flex-col items-end">
                             <span className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Contacto Directo</span>
-                            <div className="flex items-center gap-2 text-white font-medium hover:text-accent-gold transition-colors cursor-pointer">
-                                <Phone className="w-4 h-4 text-accent-gold" />
-                                <span>+57 320 397 6761</span>
+                            <div className="flex flex-col items-end gap-1 text-[13px] text-white font-medium">
+                                <a href="https://wa.me/573143873177" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent-gold transition-colors">
+                                    <Phone className="w-3 h-3 text-accent-gold" />
+                                    <span>314 387 3177</span>
+                                </a>
+                                <a href="https://wa.me/573203976761" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent-gold transition-colors">
+                                    <Phone className="w-3 h-3 text-accent-gold" />
+                                    <span>320 397 6761</span>
+                                </a>
                             </div>
                         </div>
 
-                        <motion.button
+                        <motion.a
+                            href="https://wa.me/573143873177"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             className="relative px-8 py-4 bg-accent-gold text-black font-bold uppercase text-xs tracking-[0.2em] rounded-sm overflow-hidden group shadow-[0_10px_20px_-10px_rgba(212,175,55,0.5)] transition-all"
@@ -70,7 +79,7 @@ export default function Nav() {
                                 whileHover={{ x: 0 }}
                                 transition={{ duration: 0.4, ease: "easeInOut" }}
                             />
-                        </motion.button>
+                        </motion.a>
                     </div>
 
                     <div className="block md:hidden">

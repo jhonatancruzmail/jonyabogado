@@ -30,7 +30,7 @@ export default function Values() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                        className="bg-primary-dark p-12 lg:p-16 border border-white/5 relative group overflow-hidden rounded-sm shadow-2xl"
+                        className="bg-primary-dark p-12 lg:p-16 border border-accent-gold/15 relative group overflow-hidden rounded-sm shadow-2xl"
                     >
                         <div className="absolute top-0 left-0 w-full h-1 bg-accent-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
                         <div className="flex items-center gap-6 text-accent-gold mb-8">
@@ -49,7 +49,7 @@ export default function Values() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                        className="bg-primary-dark p-12 lg:p-16 border border-white/5 relative group overflow-hidden rounded-sm shadow-2xl"
+                        className="bg-primary-dark p-12 lg:p-16 border border-accent-gold/15 relative group overflow-hidden rounded-sm shadow-2xl"
                     >
                         <div className="absolute top-0 left-0 w-full h-1 bg-accent-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
                         <div className="flex items-center gap-6 text-accent-gold mb-8">
@@ -72,7 +72,7 @@ export default function Values() {
                 <div className="container mx-auto px-6 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center relative z-10 w-full">
 
                     {/* Left Side: Why Work with Me */}
-                    <div className="space-y-12 bg-primary-dark/60 backdrop-blur-md p-8 lg:p-12 border border-white/5 rounded-sm shadow-2xl">
+                    <div className="space-y-12 bg-primary-dark/60 backdrop-blur-md p-8 lg:p-12 border border-accent-gold/15 rounded-sm shadow-2xl">
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -181,9 +181,9 @@ export default function Values() {
                                     rotateX: 5,
                                     rotateY: -5
                                 }}
-                                className="bg-primary-dark/60 p-10 border border-white/5 hover:border-gold-metallic/30 hover:bg-primary-dark/80 transition-all duration-500 group shadow-2xl backdrop-blur-md rounded-sm relative overflow-hidden"
+                                className="bg-primary-dark/60 p-10 border border-accent-gold/15 hover:border-accent-gold/40 hover:bg-primary-dark/80 transition-all duration-500 group shadow-2xl backdrop-blur-md rounded-sm relative overflow-hidden"
                             >
-                                <div className="text-accent-gold mb-8 relative z-10 p-3 bg-accent-gold/5 w-fit rounded-lg group-hover:bg-gold-metallic group-hover:text-black transition-all duration-500">
+                                <div className="text-accent-gold mb-8 relative z-10 p-3 bg-accent-gold/5 w-fit rounded-lg group-hover:bg-accent-gold/20 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.3)] transition-all duration-500">
                                     {v.icon}
                                 </div>
                                 <h4 className="text-white font-serif text-xl mb-4 tracking-widest relative z-10">{v.title}</h4>
